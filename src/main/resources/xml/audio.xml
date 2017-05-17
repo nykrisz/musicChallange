@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<audios>
+    <audio id="1.1">
+        <path>songs/chamber.mp3</path>
+        <answerA>TNT</answerA>
+        <answerB>Fear of the dark</answerB>
+        <answerC>Chamber</answerC>
+        <answerD>Welcome to the jungle</answerD>
+        <correctAns>Chamber</correctAns>
+    </audio>
+    <audio id="1.2">
+        <path>songs/sugarrush.mp3</path>
+        <answerA>Sugar Rush</answerA>
+        <answerB>carton</answerB>
+        <answerC>rock</answerC>
+        <answerD>welcome</answerD>
+        <correctAns>Sugar Rush</correctAns>
+    </audio>
+</audios>
