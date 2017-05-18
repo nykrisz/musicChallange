@@ -5,8 +5,10 @@
  */
 package hu.unideb.progtech.musicchallange;
 
-import hu.unideb.progtech.musicchallange.Song;
-import hu.unideb.progtech.musicchallange.SongDAO;
+import java.net.URL;
+import java.util.List;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 /**
@@ -16,29 +18,55 @@ import hu.unideb.progtech.musicchallange.SongDAO;
 public class GameManager {
     private final String XMLFILE = "xml/audio.xml";
     private SongDAO songdao;
-    private int index = 0;
-    private Song songlist;
+    private int songIndex;
+    private List<Song> songs;
+    
+    private String path;
+    private MediaPlayer mediaplayer;
+    private URL myurl;
+    
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
+        songIndex = 0;
     }
     
-    public Song getCurrentSong(){
-        songlist = songdao.readSong().get(index);
-        System.out.println(songlist);
-        return songlist;
+    public void getCurrentSong(){
+        songs = songdao.readSong();
     }
-        
-    /*public void playSong(String path){
+
+    public int getSongIndex() {
+        return songIndex;
+    }
+
+    public void setSongIndex(int songIndex) {
+        this.songIndex = songIndex;
+    }
+    
+   
+    public void playSong(){
+        path = songdao.readSong().get(songIndex-1).getPath();
         myurl = this.getClass().getClassLoader().getResource(path);
         Media musicfile  = new Media(myurl.toString());
         mediaplayer = new MediaPlayer(musicfile);
         mediaplayer.play();
-        System.out.println(myurl.toString());
+        System.out.println(path);
     }
-    
+
     public void stopSong(){
         mediaplayer.stop();
     }
-    */
+    
+    public Song getNextSong() {
+        if (songIndex < songs.size()) {
+          return songs.get(songIndex++);
+        }
+
+        return null;
+    }
+    
+    public boolean isAnswerCorrect(String answer) {
+        return answer.equals(songs.get(songIndex - 1).getCorrectAns());
+    }
+
 }

@@ -42,5 +42,6 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Button layoutX="223.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleNext" text="next" />
    </children>
 </AnchorPane>

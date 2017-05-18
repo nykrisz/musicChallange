@@ -5,6 +5,7 @@
  */
 package hu.unideb.progtech.musicchallange.controller;
 
+import hu.unideb.progtech.musicchallange.MainApp;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,11 +32,15 @@ public class MainMenuController implements Initializable{
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Button source = (Button) event.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
-            fxmlLoader.<NewGameController>getController().playGame();
             
+            Stage stage = (Stage) source.getScene().getWindow();
             stage.setScene(scene);
-            stage.show();    
+            stage.show();
+            
+            MainApp.getGameManager().getCurrentSong();
+
+            NewGameController gameController = fxmlLoader.getController();
+            gameController.initData();
     }
     
     @FXML
@@ -63,6 +68,6 @@ public class MainMenuController implements Initializable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }  
 }
