@@ -47,7 +47,6 @@ public class NewGameController implements Initializable{
     private Label lifeLabel;
     
     private int index = 0;
-    private int life = 3;
     private String chosen = "";
     
     @FXML
@@ -64,26 +63,55 @@ public class NewGameController implements Initializable{
     }
     
     @FXML
-    public void handleNext(){
+    public void handleNext(ActionEvent event) throws IOException{
 
             if (!(rb1.isSelected() || rb2.isSelected() || rb3.isSelected() || rb4.isSelected()))
             {
               return;
             }
-            if (MainApp.getGameManager().isAnswerCorrect(chosen)) {
-                MainApp.getGameManager().stopSong();
-              if (MainApp.getGameManager().getSongIndex() < 2) {
-                stepSong();
-                rb1.setSelected(false);
-                rb2.setSelected(false);
-                rb3.setSelected(false);
-                rb4.setSelected(false);
+            if(MainApp.getGameManager().getLife() > 0){
+                if (MainApp.getGameManager().isAnswerCorrect(chosen)) {
+                   // MainApp.getGameManager().stopSong();
+                  if (MainApp.getGameManager().getSongIndex() < 2) {
+                    stepSong();
+                    rb1.setSelected(false);
+                    rb2.setSelected(false);
+                    rb3.setSelected(false);
+                    rb4.setSelected(false);
+                    }
+                }else{
+                    MainApp.getGameManager().stopSong();
+                    MainApp.getGameManager().decLife();
+                    setLife();
+                    if (MainApp.getGameManager().getSongIndex() < 2) {
+                    stepSong();
+                    rb1.setSelected(false);
+                    rb2.setSelected(false);
+                    rb3.setSelected(false);
+                    rb4.setSelected(false);
+                    }
                 }
-            }
+            }else{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
+                Parent root = fxmlLoader.load();
+                Scene scene = new Scene(root);
+                
+                Button source = (Button) event.getSource();
+
+                Stage stage = (Stage) source.getScene().getWindow();
+
+                stage.setScene(scene);
+                stage.show();
+            }    
+    }
+    
+    public void setLife(){
+        lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
     }
     
     public void initData(){
         stepSong();
+        setLife();
     }
     
     public void stepSong(){

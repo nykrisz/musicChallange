@@ -5,6 +5,7 @@
  */
 package hu.unideb.progtech.musicchallange;
 
+import hu.unideb.progtech.musicchallange.controller.NewGameController;
 import java.net.URL;
 import java.util.List;
 import javafx.scene.media.Media;
@@ -20,6 +21,7 @@ public class GameManager {
     private SongDAO songdao;
     private int songIndex;
     private List<Song> songs;
+    private int life = 3;
     
     private String path;
     private MediaPlayer mediaplayer;
@@ -42,7 +44,6 @@ public class GameManager {
     public void setSongIndex(int songIndex) {
         this.songIndex = songIndex;
     }
-    
    
     public void playSong(){
         path = songdao.readSong().get(songIndex-1).getPath();
@@ -66,7 +67,19 @@ public class GameManager {
     }
     
     public boolean isAnswerCorrect(String answer) {
+        stopSong();
         return answer.equals(songs.get(songIndex - 1).getCorrectAns());
     }
 
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+    
+    public void decLife(){
+        life--;
+    }
 }
