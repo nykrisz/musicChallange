@@ -5,7 +5,6 @@
  */
 package hu.unideb.progtech.musicchallange;
 
-import hu.unideb.progtech.musicchallange.controller.NewGameController;
 import java.net.URL;
 import java.util.List;
 import javafx.scene.media.Media;
@@ -22,11 +21,9 @@ public class GameManager {
     private int songIndex;
     private List<Song> songs;
     private int life = 3;
-    
     private String path;
     private MediaPlayer mediaplayer;
     private URL myurl;
-    
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
@@ -62,7 +59,6 @@ public class GameManager {
         if (songIndex < songs.size()) {
           return songs.get(songIndex++);
         }
-
         return null;
     }
     

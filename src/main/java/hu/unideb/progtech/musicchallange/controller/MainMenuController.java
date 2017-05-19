@@ -36,9 +36,8 @@ public class MainMenuController implements Initializable{
             Stage stage = (Stage) source.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
-            
+  
             MainApp.getGameManager().getCurrentSong();
-
             NewGameController gameController = fxmlLoader.getController();
             gameController.initData();
     }
@@ -68,6 +67,6 @@ public class MainMenuController implements Initializable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        MainApp.newGameManager();
     }  
 }

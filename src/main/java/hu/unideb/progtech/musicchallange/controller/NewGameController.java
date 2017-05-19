@@ -5,7 +5,6 @@
  */
 package hu.unideb.progtech.musicchallange.controller;
 
-import hu.unideb.progtech.musicchallange.GameManager;
 import hu.unideb.progtech.musicchallange.MainApp;
 import hu.unideb.progtech.musicchallange.Song;
 import java.io.IOException;
@@ -20,6 +19,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -39,6 +40,12 @@ public class NewGameController implements Initializable{
     
     @FXML
     private RadioButton rb4;
+    
+    @FXML
+    private ToggleGroup group;
+    
+    @FXML
+    private VBox vbox;
     
     @FXML
     private Label counterLabel;
@@ -61,8 +68,47 @@ public class NewGameController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-    
+    //
     @FXML
+    public void change(ActionEvent event) throws IOException{
+        if(MainApp.getGameManager().getLife() != 0){    
+            setAnswer();
+            if (MainApp.getGameManager().isAnswerCorrect(chosen)) {            
+                MainApp.getGameManager().stopSong();
+                if (MainApp.getGameManager().getSongIndex() < 2) {
+                    stepSong();
+                    rb1.setSelected(false);
+                    rb2.setSelected(false);
+                    rb3.setSelected(false);
+                    rb4.setSelected(false);
+                }
+            }else{
+                MainApp.getGameManager().stopSong();
+                MainApp.getGameManager().decLife();
+                setLife();
+                if (MainApp.getGameManager().getSongIndex() < 2) {
+                    stepSong();
+                    rb1.setSelected(false);
+                    rb2.setSelected(false);
+                    rb3.setSelected(false);
+                    rb4.setSelected(false);
+                }
+            }
+        }else{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+
+            RadioButton source = (RadioButton) event.getSource();
+
+            Stage stage = (Stage) source.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+        }      
+    }
+    //
+    /*@FXML
     public void handleNext(ActionEvent event) throws IOException{
 
             if (!(rb1.isSelected() || rb2.isSelected() || rb3.isSelected() || rb4.isSelected()))
@@ -104,7 +150,7 @@ public class NewGameController implements Initializable{
                 stage.show();
             }    
     }
-    
+    */
     public void setLife(){
         lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
     }

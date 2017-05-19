@@ -1,8 +1,6 @@
 package hu.unideb.progtech.musicchallange;
 
 
-
-import hu.unideb.progtech.musicchallange.controller.NewGameController;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -20,6 +18,10 @@ public class MainApp extends Application {
     *
     *@return gameManager
     */
+    public static void newGameManager(){
+        gameManager = new GameManager();
+    }
+     
     public static GameManager getGameManager() {
       return gameManager;
     }
