@@ -24,10 +24,13 @@ public class GameManager {
     private String path;
     private MediaPlayer mediaplayer;
     private URL myurl;
+    private int countCorrect=1;
+    private int points=10;
+    private int totalPoints=0;
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
-        songIndex = 0;
+        songIndex = 0;    
     }
     
     public void getCurrentSong(){
@@ -77,5 +80,34 @@ public class GameManager {
     
     public void decLife(){
         life--;
+    }
+
+    public int getCountCorrect() {
+        return countCorrect;
+    }
+
+    public void setCountCorrect(int countCorrect) {
+        this.countCorrect = countCorrect;
+    }
+    
+    public void incCountCorrect(){
+        countCorrect++;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+ 
+    public int countPoints(){
+        totalPoints += points * countCorrect; 
+        return totalPoints;
     }
 }

@@ -10,10 +10,7 @@ package hu.unideb.progtech.musicchallange;
  * @author Krisz
  */
 public class PointCalc {
-    public void comboPoint(){
-        /*
-            ha zsinorban tobb jo valasz,pont += pont * x
-            egyebkent pont += pont
-        */
+    public void comboPoint(int multiple,int points){
+      
     }
 }

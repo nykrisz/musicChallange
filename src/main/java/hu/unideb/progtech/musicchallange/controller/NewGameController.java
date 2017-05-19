@@ -73,7 +73,14 @@ public class NewGameController implements Initializable{
     public void change(ActionEvent event) throws IOException{
         if(MainApp.getGameManager().getLife() != 0){    
             setAnswer();
+            
             if (MainApp.getGameManager().isAnswerCorrect(chosen)) {            
+                
+                MainApp.getGameManager().countPoints();
+                System.out.println(MainApp.getGameManager().getTotalPoints());
+                
+                MainApp.getGameManager().incCountCorrect();
+                System.out.println(MainApp.getGameManager().getCountCorrect());
                 MainApp.getGameManager().stopSong();
                 if (MainApp.getGameManager().getSongIndex() < 2) {
                     stepSong();
@@ -83,6 +90,8 @@ public class NewGameController implements Initializable{
                     rb4.setSelected(false);
                 }
             }else{
+                MainApp.getGameManager().setCountCorrect(1);
+                System.out.println(MainApp.getGameManager().getCountCorrect());
                 MainApp.getGameManager().stopSong();
                 MainApp.getGameManager().decLife();
                 setLife();
@@ -100,57 +109,13 @@ public class NewGameController implements Initializable{
             Scene scene = new Scene(root);
 
             RadioButton source = (RadioButton) event.getSource();
-
             Stage stage = (Stage) source.getScene().getWindow();
-
+            
             stage.setScene(scene);
-            stage.show();
+            stage.show();            
         }      
     }
-    //
-    /*@FXML
-    public void handleNext(ActionEvent event) throws IOException{
-
-            if (!(rb1.isSelected() || rb2.isSelected() || rb3.isSelected() || rb4.isSelected()))
-            {
-              return;
-            }
-            if(MainApp.getGameManager().getLife() > 0){
-                if (MainApp.getGameManager().isAnswerCorrect(chosen)) {
-                   // MainApp.getGameManager().stopSong();
-                  if (MainApp.getGameManager().getSongIndex() < 2) {
-                    stepSong();
-                    rb1.setSelected(false);
-                    rb2.setSelected(false);
-                    rb3.setSelected(false);
-                    rb4.setSelected(false);
-                    }
-                }else{
-                    MainApp.getGameManager().stopSong();
-                    MainApp.getGameManager().decLife();
-                    setLife();
-                    if (MainApp.getGameManager().getSongIndex() < 2) {
-                    stepSong();
-                    rb1.setSelected(false);
-                    rb2.setSelected(false);
-                    rb3.setSelected(false);
-                    rb4.setSelected(false);
-                    }
-                }
-            }else{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
-                Parent root = fxmlLoader.load();
-                Scene scene = new Scene(root);
-                
-                Button source = (Button) event.getSource();
-
-                Stage stage = (Stage) source.getScene().getWindow();
-
-                stage.setScene(scene);
-                stage.show();
-            }    
-    }
-    */
+    
     public void setLife(){
         lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
     }
