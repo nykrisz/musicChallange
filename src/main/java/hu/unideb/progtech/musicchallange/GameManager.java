@@ -7,6 +7,9 @@ package hu.unideb.progtech.musicchallange;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.application.Platform;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -18,15 +21,16 @@ import javafx.scene.media.MediaPlayer;
 public class GameManager {
     private final String XMLFILE = "xml/audio.xml";
     private SongDAO songdao;
-    private int songIndex;
+    private int songIndex=0;
     private List<Song> songs;
     private int life = 3;
     private String path;
     private MediaPlayer mediaplayer;
     private URL myurl;
-    private int countCorrect=1;
+    private int countCorrect=0;
     private int points=10;
     private int totalPoints=0;
+    private int time;
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
@@ -60,10 +64,13 @@ public class GameManager {
     
     public Song getNextSong() {
         if (songIndex < songs.size()) {
+            System.out.println(songs.size());
           return songs.get(songIndex++);
         }
         return null;
     }
+    
+    
     
     public boolean isAnswerCorrect(String answer) {
         stopSong();
@@ -110,4 +117,24 @@ public class GameManager {
         totalPoints += points * countCorrect; 
         return totalPoints;
     }
+
+    public int getTime() {
+        return time;
+    }
+    
+    /*public void countTime(){
+        final Timer timer = new Timer();
+        time = 10;
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                     public void run() {
+                        time--;
+                        System.out.println(time);
+                    }
+                });
+            }  
+        }, 0, 1000);       
+    }*/
 }

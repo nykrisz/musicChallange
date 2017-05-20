@@ -10,7 +10,15 @@ import hu.unideb.progtech.musicchallange.Song;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +30,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  *
@@ -48,13 +57,16 @@ public class NewGameController implements Initializable{
     private VBox vbox;
     
     @FXML
-    private Label counterLabel;
+    private Label timerLabel;
     
     @FXML
     private Label lifeLabel;
     
     private int index = 0;
     private String chosen = "";
+    private final int STARTTIME = 10;
+    private Integer time = STARTTIME;
+    private Timeline timeline;
     
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
@@ -68,52 +80,64 @@ public class NewGameController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-    //
+    
     @FXML
     public void change(ActionEvent event) throws IOException{
-        if(MainApp.getGameManager().getLife() != 0){    
-            setAnswer();
-            
-            if (MainApp.getGameManager().isAnswerCorrect(chosen)) {            
+        
+            if(MainApp.getGameManager().getLife() != 0){    
+                setAnswer();
                 
-                MainApp.getGameManager().countPoints();
-                System.out.println(MainApp.getGameManager().getTotalPoints());
-                
-                MainApp.getGameManager().incCountCorrect();
-                System.out.println(MainApp.getGameManager().getCountCorrect());
-                MainApp.getGameManager().stopSong();
-                if (MainApp.getGameManager().getSongIndex() < 2) {
-                    stepSong();
-                    rb1.setSelected(false);
-                    rb2.setSelected(false);
-                    rb3.setSelected(false);
-                    rb4.setSelected(false);
+                if (MainApp.getGameManager().isAnswerCorrect(chosen)) {            
+
+                    MainApp.getGameManager().incCountCorrect();
+                    MainApp.getGameManager().countPoints();
+                    countdown();
+                    System.out.println(MainApp.getGameManager().getSongIndex());
+                    System.out.println(MainApp.getGameManager().getCountCorrect());
+                    System.out.println(MainApp.getGameManager().getTotalPoints());
+
+                    MainApp.getGameManager().stopSong();
+                    if(MainApp.getGameManager().getSongIndex() != 2){
+                        stepSong();
+                        rb1.setSelected(false);
+                        rb2.setSelected(false);
+                        rb3.setSelected(false);
+                        rb4.setSelected(false);
+                    }else{
+                        gameOver(event);
+                    }
+                }else{
+                    MainApp.getGameManager().setCountCorrect(0);
+                    System.out.println(MainApp.getGameManager().getCountCorrect());
+                    MainApp.getGameManager().stopSong();
+                    MainApp.getGameManager().decLife();
+                    setLife();
+                    if (MainApp.getGameManager().getSongIndex() < 2) {
+                        stepSong();
+                        rb1.setSelected(false);
+                        rb2.setSelected(false);
+                        rb3.setSelected(false);
+                        rb4.setSelected(false);
+                    }else{
+                        gameOver(event);
+                    }
                 }
             }else{
-                MainApp.getGameManager().setCountCorrect(1);
-                System.out.println(MainApp.getGameManager().getCountCorrect());
-                MainApp.getGameManager().stopSong();
-                MainApp.getGameManager().decLife();
-                setLife();
-                if (MainApp.getGameManager().getSongIndex() < 2) {
-                    stepSong();
-                    rb1.setSelected(false);
-                    rb2.setSelected(false);
-                    rb3.setSelected(false);
-                    rb4.setSelected(false);
-                }
-            }
-        }else{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root);
+                gameOver(event);
+            }    
+    }
+    
+    public void gameOver(ActionEvent event) throws IOException{
+        MainApp.getGameManager().stopSong();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
 
-            RadioButton source = (RadioButton) event.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
-            
-            stage.setScene(scene);
-            stage.show();            
-        }      
+        RadioButton source = (RadioButton) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        //System.out.println(MainApp.getGameManager().getTotalPoints());
+        stage.setScene(scene);
+        stage.show();
     }
     
     public void setLife(){
@@ -128,10 +152,37 @@ public class NewGameController implements Initializable{
     public void stepSong(){
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
-        MainApp.getGameManager().playSong();
-    }
+    }  
+        
+    public void countdown(){
+        if (timeline != null) {
+            timeline.stop();
+        }
+        time = STARTTIME;
+        timerLabel.setText(time.toString());
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(1),
+                  new EventHandler() {
+                      @Override
+                      public void handle(Event event) {
+                        time--;
+                        // update timerLabel
+                        timerLabel.setText(
+                              time.toString());
+                        if (time <= 0) {
+                            timeline.stop();
+                        }
+                      }
+                }));
+        timeline.playFromStart();
+    }    
+    
   
     public void setLabels(Song s){
+        MainApp.getGameManager().playSong();
+        
         rb1.setText(s.getAnswerA());
         rb2.setText(s.getAnswerB());
         rb3.setText(s.getAnswerC());
@@ -149,26 +200,21 @@ public class NewGameController implements Initializable{
             chosen = rb4.getText();
         }
     }
-    /*
-    public void countTime(){
-        final Timer timer = new Timer();
-        
-        timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                Platform.runLater(new Runnable() {
-                    @Override
-                     public void run() {
-                        counterLabel.setText(Integer.toString(counter));
-                        counter--;
-                    }
-                });
-            }  
-        }, 0, 1000);       
-    }*/
         
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
+        /////////////////
+        countdown();
+        timerLabel.textProperty().addListener(new ChangeListener<String>() { 
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+               if(Integer.parseInt(t1) == 0){
+                   countdown();
+               }
+            }
+        });
+        ////////////////
     } 
     
 }

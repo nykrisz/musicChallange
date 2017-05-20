@@ -21,7 +21,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="counterLabel" layoutX="121.0" layoutY="141.0" prefHeight="21.0" prefWidth="77.0">
+      <Label fx:id="timerLabel" layoutX="121.0" layoutY="141.0" prefHeight="21.0" prefWidth="77.0">
          <font>
             <Font size="15.0" />
          </font>
