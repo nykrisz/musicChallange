@@ -163,6 +163,8 @@ public class NewGameController implements Initializable{
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
         comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
+        
+            System.out.println(MainApp.getGameManager().getSongWeight());
     }  
         
     public void countdown(){

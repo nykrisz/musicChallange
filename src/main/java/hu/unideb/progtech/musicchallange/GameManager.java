@@ -30,7 +30,6 @@ public class GameManager {
     private int countCorrect=0;
     private int points=10;
     private int totalPoints=0;
-    private int time;
     private User currentUser=null;
     
     public GameManager(){
@@ -72,7 +71,6 @@ public class GameManager {
         Media musicfile  = new Media(myurl.toString());
         mediaplayer = new MediaPlayer(musicfile);
         mediaplayer.play();
-        System.out.println(path);
     }
 
     public void stopSong(){
@@ -81,8 +79,7 @@ public class GameManager {
     
     public Song getNextSong() {
         if (songIndex < songs.size()) {
-            System.out.println(songs.size());
-          return songs.get(songIndex++);
+            return songs.get(songIndex++);
         }
         return null;
     }
@@ -92,12 +89,20 @@ public class GameManager {
         return answer.equals(songs.get(songIndex - 1).getCorrectAns());
     }
 
+    public String getSongWeight(){
+        return songs.get(songIndex - 1).getWeight();
+    }
+    
+    public void setPointByWeight(){
+        if(getSongWeight().equals("K1")){
+            setPoints(10);
+        }else if(getSongWeight().equals("K2")){
+            setPoints(20);
+        }
+    }
+    
     public int getLife() {
         return life;
-    }
-
-    public void setLife(int life) {
-        this.life = life;
     }
     
     public void decLife(){
@@ -123,27 +128,24 @@ public class GameManager {
     public void setPoints(int points) {
         this.points = points;
     }
-
-    public int getTotalPoints() {
-        return totalPoints;
-    }
  
     public int countPoints(){
+        setPointByWeight();
         totalPoints += points * countCorrect; 
         return totalPoints;
     }
-
-    public int getTime() {
-        return time;
+    
+    public int getTotalPoints() {
+        return totalPoints;
     }
     
     public ObservableList<User> getResults() {
         UserDAO xu = new UserDAO("users.xml");
-        List<User> lista = new ArrayList<>();
+        List<User> list = new ArrayList<>();
 
-        lista = xu.getUsers();
+        list = xu.getUsers();
         ObservableList<User> results = FXCollections.observableArrayList();
-        for (User users : lista) {
+        for (User users : list) {
           results.add(users);
         }
 

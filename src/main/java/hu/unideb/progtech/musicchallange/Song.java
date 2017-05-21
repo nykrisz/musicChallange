@@ -17,14 +17,16 @@ public class Song {
     private String answerC;
     private String answerD;
     private String correctAns;
+    private String weight;
 
-    public Song(String path, String answerA, String answerB, String answerC, String answerD, String correctAns) {
+    public Song(String path, String answerA, String answerB, String answerC, String answerD, String correctAns, String weight) {
         this.path = path;
         this.answerA = answerA;
         this.answerB = answerB;
         this.answerC = answerC;
         this.answerD = answerD;
         this.correctAns = correctAns;
+        this.weight = weight;
     }
 
     public String getPath() {
@@ -75,10 +77,13 @@ public class Song {
         this.correctAns = correctAns;
     }
 
-    @Override
-    public String toString() {
-        return "Song{" + "path=" + path + ", answerA=" + answerA + ", answerB=" + answerB + ", answerC=" + answerC + ", answerD=" + answerD + ", correctAns=" + correctAns + '}';
+    public String getWeight() {
+        return weight;
     }
-    
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
     
 }    

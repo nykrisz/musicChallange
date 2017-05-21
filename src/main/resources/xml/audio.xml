@@ -14,6 +14,7 @@ and open the template in the editor.
         <answerC>Chamber</answerC>
         <answerD>Welcome to the jungle</answerD>
         <correctAns>Chamber</correctAns>
+        <weight>K1</weight>
     </audio>
     <audio id="1.2">
         <path>songs/sugarrush.mp3</path>
@@ -22,5 +23,6 @@ and open the template in the editor.
         <answerC>rock</answerC>
         <answerD>welcome</answerD>
         <correctAns>Sugar Rush</correctAns>
+        <weight>K2</weight>
     </audio>
 </audios>

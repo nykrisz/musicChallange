@@ -47,7 +47,8 @@ public class SongDAO {
                 eElement.getElementsByTagName("answerB").item(0).getTextContent(),
                 eElement.getElementsByTagName("answerC").item(0).getTextContent(),
                 eElement.getElementsByTagName("answerD").item(0).getTextContent(),
-                eElement.getElementsByTagName("correctAns").item(0).getTextContent()));
+                eElement.getElementsByTagName("correctAns").item(0).getTextContent(),
+                eElement.getElementsByTagName("weight").item(0).getTextContent()));
           }
 
           return songList;
