@@ -14,11 +14,11 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <TableView layoutX="12.0" layoutY="96.0" prefHeight="247.0" prefWidth="300.0">
+      <TableView fx:id="table" layoutX="14.0" layoutY="96.0" prefHeight="247.0" prefWidth="300.0">
         <columns>
-          <TableColumn prefWidth="100.0" text="Name" />
-          <TableColumn prefWidth="100.0" text="Date" />
-          <TableColumn prefWidth="100.0" text="Score" />
+          <TableColumn fx:id="userName" prefWidth="100.0" text="Name" />
+          <TableColumn fx:id="userPoint" prefWidth="98.0" text="Score" />
+            <TableColumn fx:id="dateColumn" prefWidth="98.0" text="Date" />
         </columns>
       </TableView>
       <Button layoutX="239.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="30.0" prefWidth="65.0" text="Back">

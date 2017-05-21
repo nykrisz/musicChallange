@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.NewGameController">
    <children>
-      <Label fx:id="pointLabel" layoutX="146.0" layoutY="53.0" text="?">
+      <Label fx:id="comboLabel" layoutX="146.0" layoutY="53.0">
          <font>
             <Font size="51.0" />
          </font>

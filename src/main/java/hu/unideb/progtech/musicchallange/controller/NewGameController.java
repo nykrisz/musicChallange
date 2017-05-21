@@ -7,8 +7,12 @@ package hu.unideb.progtech.musicchallange.controller;
 
 import hu.unideb.progtech.musicchallange.MainApp;
 import hu.unideb.progtech.musicchallange.Song;
+import hu.unideb.progtech.musicchallange.User;
+import hu.unideb.progtech.musicchallange.UserDAO;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -62,10 +66,17 @@ public class NewGameController implements Initializable{
     @FXML
     private Label lifeLabel;
     
+    @FXML
+    private Label comboLabel;
+    
     private String chosen = "";
     private final int STARTTIME = 10;
     private Integer time = STARTTIME;
     private Timeline timeline;
+    
+    UserDAO rx = new UserDAO("users.xml");
+    List<User> jatekos = new ArrayList<>();
+
     
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
@@ -91,7 +102,7 @@ public class NewGameController implements Initializable{
                     MainApp.getGameManager().countPoints();
                     
                     MainApp.getGameManager().stopSong();
-                    if(MainApp.getGameManager().getSongIndex() != 2){
+                    if(MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize()){
                         stepSong();
                         rb1.setSelected(false);
                         rb2.setSelected(false);
@@ -106,7 +117,7 @@ public class NewGameController implements Initializable{
                     MainApp.getGameManager().stopSong();
                     MainApp.getGameManager().decLife();
                     setLife();
-                    if (MainApp.getGameManager().getSongIndex() < 2) {
+                    if (MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize()) {
                         stepSong();
                         rb1.setSelected(false);
                         rb2.setSelected(false);
@@ -131,6 +142,11 @@ public class NewGameController implements Initializable{
         
         stage.setScene(scene);
         stage.show();
+        timeline.stop();
+        MainApp.getGameManager().setCurrentUser(MainApp.getGameManager().getCurrentUserName(), MainApp.getGameManager().getTotalPoints());
+        jatekos.addAll(rx.getUsers());
+        jatekos.add(MainApp.getGameManager().getCurrentUser());
+        rx.persistUsers(jatekos);
     }
         
     public void setLife(){
@@ -146,6 +162,7 @@ public class NewGameController implements Initializable{
         countdown();
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
+        comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
     }  
         
     public void countdown(){
@@ -202,7 +219,7 @@ public class NewGameController implements Initializable{
             @Override
             public void changed(ObservableValue<? extends String> ov, String t, String t1) {
                if(Integer.parseInt(t1) == 0){
-                   if(MainApp.getGameManager().getSongIndex() != 2 && MainApp.getGameManager().getLife() > 0){
+                   if(MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize() && MainApp.getGameManager().getLife() > 0){
                         MainApp.getGameManager().stopSong();
                         MainApp.getGameManager().decLife();
                         setLife();

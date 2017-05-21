@@ -59,6 +59,18 @@ public class LoginController implements Initializable {
         }
     }
     
+    @FXML
+    public void handleButtonBack(ActionEvent event) throws IOException{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            
+            Button source = (Button) event.getSource();            
+            Stage stage = (Stage) source.getScene().getWindow();
+            
+            stage.setScene(scene);
+            stage.show();
+    }
     /**
      * Initializes the controller class.
      */

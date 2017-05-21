@@ -6,7 +6,10 @@
 package hu.unideb.progtech.musicchallange;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -35,6 +38,10 @@ public class GameManager {
         songIndex = 0;    
     }
 
+    public int songSize(){
+        return songs.size();
+    }
+    
     public void setCurrentUser(String name, int point) {
         currentUser = new User(name, point);
     }
@@ -46,7 +53,6 @@ public class GameManager {
     public User getCurrentUser() {
         return currentUser;
     }
-
     
     public void getCurrentSong(){
         songs = songdao.readSong();
@@ -131,4 +137,16 @@ public class GameManager {
         return time;
     }
     
+    public ObservableList<User> getResults() {
+        UserDAO xu = new UserDAO("users.xml");
+        List<User> lista = new ArrayList<>();
+
+        lista = xu.getUsers();
+        ObservableList<User> results = FXCollections.observableArrayList();
+        for (User users : lista) {
+          results.add(users);
+        }
+
+    return results;
+    }
 }

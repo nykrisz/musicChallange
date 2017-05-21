@@ -5,6 +5,8 @@
  */
 package hu.unideb.progtech.musicchallange.controller;
 
+import hu.unideb.progtech.musicchallange.MainApp;
+import hu.unideb.progtech.musicchallange.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +28,13 @@ import javafx.stage.Stage;
  */
 public class HighScoresController implements Initializable{
     
+    @FXML
+    private TableColumn<User, String> userName;
+    @FXML
+    private TableColumn<User, Integer> userPoint;
+    @FXML
+    private TableView<User> table;
+
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
@@ -38,10 +50,15 @@ public class HighScoresController implements Initializable{
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        userName.setCellValueFactory(new PropertyValueFactory<User,String>("name"));
+        userPoint.setCellValueFactory(new PropertyValueFactory<User,Integer>("score"));
+        table.setItems(MainApp.getGameManager().getResults());
     }    
     
 }
