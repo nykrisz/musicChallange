@@ -7,9 +7,6 @@ package hu.unideb.progtech.musicchallange;
 
 import java.net.URL;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-import javafx.application.Platform;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -31,11 +28,25 @@ public class GameManager {
     private int points=10;
     private int totalPoints=0;
     private int time;
+    private User currentUser=null;
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
         songIndex = 0;    
     }
+
+    public void setCurrentUser(String name, int point) {
+        currentUser = new User(name, point);
+    }
+
+    public String getCurrentUserName() {
+        return currentUser.getName();
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
     
     public void getCurrentSong(){
         songs = songdao.readSong();
@@ -69,8 +80,6 @@ public class GameManager {
         }
         return null;
     }
-    
-    
     
     public boolean isAnswerCorrect(String answer) {
         stopSong();
@@ -122,19 +131,4 @@ public class GameManager {
         return time;
     }
     
-    /*public void countTime(){
-        final Timer timer = new Timer();
-        time = 10;
-        timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                Platform.runLater(new Runnable() {
-                    @Override
-                     public void run() {
-                        time--;
-                        System.out.println(time);
-                    }
-                });
-            }  
-        }, 0, 1000);       
-    }*/
 }

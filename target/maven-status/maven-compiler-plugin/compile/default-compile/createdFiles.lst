@@ -5,8 +5,8 @@ hu\unideb\progtech\musicchallange\SongDAO.class
 hu\unideb\progtech\musicchallange\controller\NewGameController$2.class
 hu\unideb\progtech\musicchallange\controller\NewGameController.class
 hu\unideb\progtech\musicchallange\UserDAO.class
-LoginController.class
 hu\unideb\progtech\musicchallange\controller\HighScoresController.class
+hu\unideb\progtech\musicchallange\controller\LoginController.class
 hu\unideb\progtech\musicchallange\LifeCounter.class
 hu\unideb\progtech\musicchallange\User.class
 hu\unideb\progtech\musicchallange\PointCalc.class

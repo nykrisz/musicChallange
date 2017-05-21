@@ -28,18 +28,16 @@ public class MainMenuController implements Initializable{
     @FXML
     public void handleNewGame(ActionEvent event) throws IOException{
             
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/newGame.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
-            Button source = (Button) event.getSource();
             
+            Button source = (Button) event.getSource();            
             Stage stage = (Stage) source.getScene().getWindow();
+            
             stage.setScene(scene);
             stage.show();
-  
-            MainApp.getGameManager().getCurrentSong();
-            NewGameController gameController = fxmlLoader.getController();
-            gameController.initData();
+            
     }
     
     @FXML
