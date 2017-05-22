@@ -24,7 +24,7 @@ import org.w3c.dom.NodeList;
  *
  * @author Krisz
  */
-public class UserDAO {
+public class UserDAO implements UDAO{
     
   private final String xmlFile;
 
@@ -32,28 +32,29 @@ public class UserDAO {
     this.xmlFile = xmlFile;
   }
 
+  @Override
   public List<User> getUsers() {
     try {
-      List<User> listUsers = new ArrayList<>();
+        List<User> listUsers = new ArrayList<>();
 
-      File is = new File(xmlFile);
+        File is = new File(xmlFile);
 
-      DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-      DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-      Document doc = dBuilder.parse(is);
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(is);
 
-      doc.getDocumentElement().normalize();
+        doc.getDocumentElement().normalize();
 
-      NodeList nList = doc.getElementsByTagName("user");
+        NodeList nList = doc.getElementsByTagName("user");
 
-      for (int i = 0; i < nList.getLength(); i++) {
-        Element eElement = (Element) nList.item(i);
+        for (int i = 0; i < nList.getLength(); i++) {
+            Element eElement = (Element) nList.item(i);
 
-        listUsers.add(new User(eElement.getElementsByTagName("username").item(0).getTextContent(),
-        Integer.parseInt(eElement.getElementsByTagName("points").item(0).getTextContent())));
-      }
+            listUsers.add(new User(eElement.getElementsByTagName("username").item(0).getTextContent(),
+            Integer.parseInt(eElement.getElementsByTagName("points").item(0).getTextContent())));
+        }
 
-      return listUsers;
+        return listUsers;
 
     } catch (Exception e) {
         
@@ -61,44 +62,45 @@ public class UserDAO {
     }
   }
 
+  @Override
   public void persistUsers(List<User> users) {
     try {
-      DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-      DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-      // root elements
-      Document doc = docBuilder.newDocument();
-      Element rootElement = doc.createElement("users");
-      doc.appendChild(rootElement);
+        // root elements
+        Document doc = docBuilder.newDocument();
+        Element rootElement = doc.createElement("users");
+        doc.appendChild(rootElement);
 
-      // user elements
-      for (int i = 0; i < users.size(); i++) {
+        // user elements
+        for (int i = 0; i < users.size(); i++) {
 
-        Element user = doc.createElement("user");
-        rootElement.appendChild(user);
+            Element user = doc.createElement("user");
+            rootElement.appendChild(user);
 
-        Element userName = doc.createElement("username");
-        userName.appendChild(doc.createTextNode(users.get(i).getName()));
-        user.appendChild(userName);
+            Element userName = doc.createElement("username");
+            userName.appendChild(doc.createTextNode(users.get(i).getName()));
+            user.appendChild(userName);
 
-        // point elements
-        Element point = doc.createElement("points");
-        point.appendChild(doc.createTextNode(Integer.toString(users.get(i).getScore())));
-        user.appendChild(point);
-      }
+            // point elements
+            Element point = doc.createElement("points");
+            point.appendChild(doc.createTextNode(Integer.toString(users.get(i).getScore())));
+            user.appendChild(point);
+    }
 
-      // write the content into xml file
-      TransformerFactory transformerFactory = TransformerFactory.newInstance();
-      Transformer transformer = transformerFactory.newTransformer();
-      DOMSource source = new DOMSource(doc);
-      StreamResult result = new StreamResult(new File(xmlFile));
+    // write the content into xml file
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    Transformer transformer = transformerFactory.newTransformer();
+    DOMSource source = new DOMSource(doc);
+    StreamResult result = new StreamResult(new File(xmlFile));
 
-      // Output to console for testing
-      transformer.transform(source, result);
+    // Output to console for testing
+    transformer.transform(source, result);
 
-    } catch (ParserConfigurationException pce) {
+    }catch (ParserConfigurationException pce) {
       pce.printStackTrace();
-    } catch (TransformerException tfe) {
+    }catch (TransformerException tfe) {
       tfe.printStackTrace();
     }
   }

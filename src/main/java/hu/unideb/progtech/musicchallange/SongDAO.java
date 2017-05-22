@@ -18,13 +18,14 @@ import org.w3c.dom.NodeList;
  *
  * @author Krisz
  */
-public class SongDAO {
+public class SongDAO implements SDAO{
     private final String xmlfile;
 
     public SongDAO(String xmlfile) {
         this.xmlfile = xmlfile;
     }
     
+    @Override
     public List<Song> readSong(){
         try {
           List<Song> songList = new ArrayList<>();

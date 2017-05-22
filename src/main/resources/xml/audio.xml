@@ -7,7 +7,7 @@ and open the template in the editor.
 
 
 <audios>
-    <audio id="1.1">
+    <audio>
         <path>songs/chamber.mp3</path>
         <answerA>TNT</answerA>
         <answerB>Fear of the dark</answerB>
@@ -16,7 +16,7 @@ and open the template in the editor.
         <correctAns>Chamber</correctAns>
         <weight>K1</weight>
     </audio>
-    <audio id="1.2">
+    <audio>
         <path>songs/sugarrush.mp3</path>
         <answerA>Sugar Rush</answerA>
         <answerB>carton</answerB>

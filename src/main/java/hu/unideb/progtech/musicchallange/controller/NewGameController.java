@@ -74,8 +74,8 @@ public class NewGameController implements Initializable{
     private Integer time = STARTTIME;
     private Timeline timeline;
     
-    UserDAO rx = new UserDAO("users.xml");
-    List<User> jatekos = new ArrayList<>();
+    UserDAO usdao = new UserDAO("users.xml");
+    List<User> player = new ArrayList<>();
 
     
     @FXML
@@ -132,7 +132,7 @@ public class NewGameController implements Initializable{
             }    
     }
     
-    public void gameOver() throws IOException{
+    private void gameOver() throws IOException{
         MainApp.getGameManager().stopSong();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
         Parent root = fxmlLoader.load();
@@ -144,13 +144,9 @@ public class NewGameController implements Initializable{
         stage.show();
         timeline.stop();
         MainApp.getGameManager().setCurrentUser(MainApp.getGameManager().getCurrentUserName(), MainApp.getGameManager().getTotalPoints());
-        jatekos.addAll(rx.getUsers());
-        jatekos.add(MainApp.getGameManager().getCurrentUser());
-        rx.persistUsers(jatekos);
-    }
-        
-    public void setLife(){
-        lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
+        player.addAll(usdao.getUsers());
+        player.add(MainApp.getGameManager().getCurrentUser());
+        usdao.persistUsers(player);
     }
     
     public void initData(){
@@ -158,16 +154,19 @@ public class NewGameController implements Initializable{
         setLife();
     }
     
-    public void stepSong(){
+    private void setLife(){
+        lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
+    }
+    
+    private void stepSong(){
         countdown();
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
         comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
         
-            System.out.println(MainApp.getGameManager().getSongWeight());
     }  
         
-    public void countdown(){
+    private void countdown(){
         if (timeline != null) {
             timeline.stop();
         }
@@ -193,7 +192,7 @@ public class NewGameController implements Initializable{
     }    
     
   
-    public void setLabels(Song s){
+    private void setLabels(Song s){
         MainApp.getGameManager().playSong();
         
         rb1.setText(s.getAnswerA());
@@ -202,7 +201,7 @@ public class NewGameController implements Initializable{
         rb4.setText(s.getAnswerD());
     }
 
-    public void setAnswer(){
+    private void setAnswer(){
         if(rb1.isSelected()){
             chosen = rb1.getText();
         }if(rb2.isSelected()){

@@ -89,15 +89,26 @@ public class GameManager {
         return answer.equals(songs.get(songIndex - 1).getCorrectAns());
     }
 
-    public String getSongWeight(){
+    private String getSongWeight(){
         return songs.get(songIndex - 1).getWeight();
     }
     
-    public void setPointByWeight(){
-        if(getSongWeight().equals("K1")){
-            setPoints(10);
-        }else if(getSongWeight().equals("K2")){
-            setPoints(20);
+    private void setPointByWeight(){
+        switch (getSongWeight()) {
+            case "K1":
+                setPoints(10);
+                break;
+            case "K2":
+                setPoints(20);
+                break;
+            case "K3":
+                setPoints(30);
+                break;
+            case "K4":
+                setPoints(40);
+                break;
+            default:
+                break;
         }
     }
     
@@ -140,10 +151,10 @@ public class GameManager {
     }
     
     public ObservableList<User> getResults() {
-        UserDAO xu = new UserDAO("users.xml");
+        UserDAO usdao = new UserDAO("users.xml");
         List<User> list = new ArrayList<>();
 
-        list = xu.getUsers();
+        list = usdao.getUsers();
         ObservableList<User> results = FXCollections.observableArrayList();
         for (User users : list) {
           results.add(users);
