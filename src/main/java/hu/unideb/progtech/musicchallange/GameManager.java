@@ -21,34 +21,40 @@ import javafx.scene.media.MediaPlayer;
 public class GameManager {
     private final String XMLFILE = "xml/audio.xml";
     private SongDAO songdao;
-    private int songIndex=0;
+    private int songIndex;
     private List<Song> songs;
     private int life = 3;
     private String path;
     private MediaPlayer mediaplayer;
     private URL myurl;
-    private int countCorrect=0;
-    private int points=10;
-    private int totalPoints=0;
+    private int countCorrect;
+    private int points;
+    private int totalPoints;
     private User currentUser=null;
+    private String weight;
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
+        songIndex = 0;    
+    }
+    public GameManager(String xmlfile){
+        songdao = new SongDAO(xmlfile);
         songIndex = 0;    
     }
 
     public int songSize(){
         return songs.size();
     }
-    
+    //
     public void setCurrentUser(String name, int point) {
         currentUser = new User(name, point);
     }
 
+    //
     public String getCurrentUserName() {
         return currentUser.getName();
     }
-
+    //
     public User getCurrentUser() {
         return currentUser;
     }
@@ -64,9 +70,14 @@ public class GameManager {
     public void setSongIndex(int songIndex) {
         this.songIndex = songIndex;
     }
-   
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+    
     public void playSong(){
         path = songdao.readSong().get(songIndex-1).getPath();
+        getSongWeight();
         myurl = this.getClass().getClassLoader().getResource(path);
         Media musicfile  = new Media(myurl.toString());
         mediaplayer = new MediaPlayer(musicfile);
@@ -89,12 +100,12 @@ public class GameManager {
         return answer.equals(songs.get(songIndex - 1).getCorrectAns());
     }
 
-    private String getSongWeight(){
-        return songs.get(songIndex - 1).getWeight();
+    public void getSongWeight(){
+        weight = songs.get(songIndex - 1).getWeight();
     }
     
-    private void setPointByWeight(){
-        switch (getSongWeight()) {
+    public void setPointByWeight(){
+        switch (weight) {
             case "K1":
                 setPoints(10);
                 break;
@@ -111,9 +122,22 @@ public class GameManager {
                 break;
         }
     }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+ 
     
     public int getLife() {
         return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
     }
     
     public void decLife(){
@@ -142,12 +166,19 @@ public class GameManager {
  
     public int countPoints(){
         setPointByWeight();
-        totalPoints += points * countCorrect; 
+        setTotalPoints(points, countCorrect);
         return totalPoints;
     }
     
     public int getTotalPoints() {
         return totalPoints;
+    }
+
+    public void setTotalPoints(int points, int countCorrect) {
+        this.points = points;
+        this.countCorrect = countCorrect;
+        
+        totalPoints += points * countCorrect;
     }
     
     public ObservableList<User> getResults() {
@@ -162,4 +193,5 @@ public class GameManager {
 
     return results;
     }
+    
 }

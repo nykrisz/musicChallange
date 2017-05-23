@@ -55,7 +55,7 @@ public class LoginController implements Initializable {
             gameController.initData();
             
         } else {
-            errorLabel.setText("Légyszíves add meg a neved!");
+            errorLabel.setText("add meg a neved!");
         }
     }
     

@@ -13,11 +13,7 @@ public class MainApp extends Application {
 
      private static GameManager gameManager;
 
-    /**
-    *Visszaadja az ebben az osztályban pédányosított {@code GameManager} objektumunkat .
-    *
-    *@return gameManager
-    */
+    
     public static void newGameManager(){
         gameManager = new GameManager();
     }

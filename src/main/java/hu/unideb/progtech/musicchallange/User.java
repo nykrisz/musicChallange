@@ -5,6 +5,8 @@
  */
 package hu.unideb.progtech.musicchallange;
 
+import java.util.Objects;
+
 /**
  *
  * @author Krisz
@@ -12,11 +14,11 @@ package hu.unideb.progtech.musicchallange;
 public class User {
     
     private String name;
-    private int score;
+    private int point;
 
     public User(String name, int score) {
         this.name = name;
-        this.score = score;
+        this.point = score;
     }
 
     public String getName() {
@@ -28,17 +30,34 @@ public class User {
     }
 
     public int getScore() {
-        return score;
+        return point;
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.point = score;
     }
 
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", score=" + score + '}';
+        return "User{" + "name=" + name + ", score=" + point + '}';
     }
-    
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (this.point != other.point) {
+            return false;
+        }
+        return true;
+    }
+
 }

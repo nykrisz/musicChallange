@@ -5,6 +5,8 @@
  */
 package hu.unideb.progtech.musicchallange;
 
+import java.util.Objects;
+
 
 /**
  *
@@ -26,6 +28,10 @@ public class Song {
         this.answerC = answerC;
         this.answerD = answerD;
         this.correctAns = correctAns;
+        this.weight = weight;
+    }
+    
+    public Song(String weight){
         this.weight = weight;
     }
 
@@ -85,5 +91,37 @@ public class Song {
         this.weight = weight;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Song other = (Song) obj;
+        if (!Objects.equals(this.path, other.path)) {
+            return false;
+        }
+        if (!Objects.equals(this.answerA, other.answerA)) {
+            return false;
+        }
+        if (!Objects.equals(this.answerB, other.answerB)) {
+            return false;
+        }
+        if (!Objects.equals(this.answerC, other.answerC)) {
+            return false;
+        }
+        if (!Objects.equals(this.answerD, other.answerD)) {
+            return false;
+        }
+        if (!Objects.equals(this.correctAns, other.correctAns)) {
+            return false;
+        }
+        if (!Objects.equals(this.weight, other.weight)) {
+            return false;
+        }
+        return true;
+    }
     
 }    
