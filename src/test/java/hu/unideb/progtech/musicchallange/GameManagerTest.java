@@ -18,14 +18,12 @@ import static org.junit.Assert.*;
  */
 public class GameManagerTest {
     private GameManager gameManager;
-    private GameManager gameMan;
     
     public GameManagerTest(){}
     
     @Before
     public void setUp() {
       gameManager = new GameManager();
-      gameMan = new GameManager("src/test/resources/audioTest.xml");
     }
     
     @After

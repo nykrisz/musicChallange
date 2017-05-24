@@ -37,11 +37,7 @@ public class GameManager {
         songdao = new SongDAO(XMLFILE);
         songIndex = 0;    
     }
-    public GameManager(String xmlfile){
-        songdao = new SongDAO(xmlfile);
-        songIndex = 0;    
-    }
-
+  
     public int songSize(){
         return songs.size();
     }
@@ -76,8 +72,6 @@ public class GameManager {
     }
     
     public void playSong(){
-        path = songdao.readSong().get(songIndex-1).getPath();
-        getSongWeight();
         myurl = this.getClass().getClassLoader().getResource(path);
         Media musicfile  = new Media(myurl.toString());
         mediaplayer = new MediaPlayer(musicfile);
@@ -90,6 +84,8 @@ public class GameManager {
     
     public Song getNextSong() {
         if (songIndex < songs.size()) {
+            setPath(songdao.readSong().get(songIndex).getPath());
+            setWeight(songs.get(songIndex).getWeight());
             return songs.get(songIndex++);
         }
         return null;
@@ -98,10 +94,6 @@ public class GameManager {
     public boolean isAnswerCorrect(String answer) {
         stopSong();
         return answer.equals(songs.get(songIndex - 1).getCorrectAns());
-    }
-
-    public void getSongWeight(){
-        weight = songs.get(songIndex - 1).getWeight();
     }
     
     public void setPointByWeight(){
