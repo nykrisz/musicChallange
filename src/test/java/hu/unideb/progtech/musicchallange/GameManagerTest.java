@@ -6,6 +6,8 @@
 package hu.unideb.progtech.musicchallange;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,11 +61,10 @@ public class GameManagerTest {
     @Test
     public void testGetNextSongNull(){
         String expected = null;
-        gameManager.getCurrentSong();
+        gameManager.currentSong();
         gameManager.setSongIndex(gameManager.songSize()+1);
         assertEquals(expected,gameManager.getNextSong());
     }
-    
     
     @Test
     public void testGetSongIndex() {
@@ -114,7 +115,7 @@ public class GameManagerTest {
         int combo = 3;
         int expected = 30;
         
-        gameManager.setTotalPoints(points, combo);
+        gameManager.totalPoints(points, combo);
         assertEquals(expected,gameManager.getTotalPoints());
     }
     
@@ -173,6 +174,19 @@ public class GameManagerTest {
         gameManager.setPointByWeight();
         gameManager.setCountCorrect(1);
         assertEquals(expected,gameManager.countPoints());
+    }
+    
+    @Test
+    public void testGetResults(){
+        User user = new User("TestName", 100);
+
+        List<User> expResult = new ArrayList<User>();
+
+        expResult.add(user);
+
+        List<User> result = gameManager.getResults("src/test/resources/UserTest.xml");
+
+        assertEquals(expResult, result);
     }
    
     

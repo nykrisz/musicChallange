@@ -38,11 +38,6 @@ public class User {
     }
 
     @Override
-    public String toString() {
-        return "User{" + "name=" + name + ", score=" + point + '}';
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

@@ -80,6 +80,8 @@ public class NewGameController implements Initializable{
     
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
+        MainApp.getGameManager().stopSong();
+        timeline.stop();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
@@ -113,7 +115,6 @@ public class NewGameController implements Initializable{
                     }
                 }else{
                     MainApp.getGameManager().setCountCorrect(0);
-                    System.out.println(MainApp.getGameManager().getCountCorrect());
                     MainApp.getGameManager().stopSong();
                     MainApp.getGameManager().decLife();
                     setLife();
@@ -132,30 +133,9 @@ public class NewGameController implements Initializable{
             }    
     }
     
-    private void gameOver() throws IOException{
-        MainApp.getGameManager().stopSong();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root);
-        
-        Stage stage = (Stage) rb1.getScene().getWindow();
-        
-        stage.setScene(scene);
-        stage.show();
-        timeline.stop();
-        MainApp.getGameManager().setCurrentUser(MainApp.getGameManager().getCurrentUserName(), MainApp.getGameManager().getTotalPoints());
-        player.addAll(usdao.getUsers());
-        player.add(MainApp.getGameManager().getCurrentUser());
-        usdao.persistUsers(player);
-    }
-    
     public void initData(){
         stepSong();
         setLife();
-    }
-    
-    private void setLife(){
-        lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
     }
     
     private void stepSong(){
@@ -163,35 +143,12 @@ public class NewGameController implements Initializable{
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
         comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
-        
-    }  
-        
-    private void countdown(){
-        if (timeline != null) {
-            timeline.stop();
-        }
-        time = STARTTIME;
-        timerLabel.setText(time.toString());
-        timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(1),
-                  new EventHandler() {
-                      @Override
-                      public void handle(Event event) {
-                        time--;
-                        // update timerLabel
-                        timerLabel.setText(
-                              time.toString());
-                        if (time <= 0) {
-                            timeline.stop();
-                        }
-                      }
-                }));
-        timeline.playFromStart();
-    }    
+    }
     
-  
+    private void setLife(){
+        lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
+    }
+    
     private void setLabels(Song s){
         MainApp.getGameManager().playSong();
         
@@ -212,7 +169,48 @@ public class NewGameController implements Initializable{
             chosen = rb4.getText();
         }
     }
+    
+    private void countdown(){
+        if (timeline != null) {
+            timeline.stop();
+        }
+        time = STARTTIME;
+        timerLabel.setText(time.toString());
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(1),
+                  new EventHandler() {
+                      @Override
+                      public void handle(Event event) {
+                        time--;
+                        timerLabel.setText(
+                              time.toString());
+                        if (time <= 0) {
+                            timeline.stop();
+                        }
+                      }
+                }));
+        timeline.playFromStart();
+    }    
+    
+    private void gameOver() throws IOException{
+        MainApp.getGameManager().stopSong();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
         
+        Stage stage = (Stage) rb1.getScene().getWindow();
+        
+        stage.setScene(scene);
+        stage.show();
+        timeline.stop();
+        MainApp.getGameManager().setCurrentUser(MainApp.getGameManager().getCurrentUserName(), MainApp.getGameManager().getTotalPoints());
+        player.addAll(usdao.getUsers());
+        player.add(MainApp.getGameManager().getCurrentUser());
+        usdao.persistUsers(player);
+    }
+     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
@@ -226,7 +224,6 @@ public class NewGameController implements Initializable{
                         setLife();
                         stepSong();
                    }else{
-                       System.out.println("game over");
                        try {
                            gameOver();
                        } catch (IOException ex) {
@@ -236,7 +233,6 @@ public class NewGameController implements Initializable{
                 }
             }
         });
-        System.out.println(MainApp.getGameManager().getCurrentUserName());
     } 
     
 }

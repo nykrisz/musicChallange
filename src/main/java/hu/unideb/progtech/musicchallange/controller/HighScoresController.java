@@ -54,7 +54,7 @@ public class HighScoresController implements Initializable{
         
         userName.setCellValueFactory(new PropertyValueFactory<User,String>("name"));
         userPoint.setCellValueFactory(new PropertyValueFactory<User,Integer>("score"));
-        table.setItems(MainApp.getGameManager().getResults());
+        table.setItems(MainApp.getGameManager().getResults(MainApp.getGameManager().getUxml()));
     }    
     
 }

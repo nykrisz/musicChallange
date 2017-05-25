@@ -32,31 +32,27 @@ public class GameManager {
     private int totalPoints;
     private User currentUser=null;
     private String weight;
+    private final String UXML = "users.xml";
     
     public GameManager(){
         songdao = new SongDAO(XMLFILE);
         songIndex = 0;    
     }
-  
-    public int songSize(){
-        return songs.size();
+
+    public String getUxml() {
+        return UXML;
     }
-    //
+    
     public void setCurrentUser(String name, int point) {
         currentUser = new User(name, point);
     }
 
-    //
-    public String getCurrentUserName() {
-        return currentUser.getName();
-    }
-    //
     public User getCurrentUser() {
         return currentUser;
     }
     
-    public void getCurrentSong(){
-        songs = songdao.readSong();
+    public String getCurrentUserName() {
+        return currentUser.getName();
     }
 
     public int getSongIndex() {
@@ -69,6 +65,50 @@ public class GameManager {
 
     public void setPath(String path) {
         this.path = path;
+    }
+    
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+ 
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+    
+    public int getCountCorrect() {
+        return countCorrect;
+    }
+
+    public void setCountCorrect(int countCorrect) {
+        this.countCorrect = countCorrect;
+    }
+    
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+    
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+    
+    public void currentSong(){
+        songs = songdao.readSong();
+    }
+    
+    public int songSize(){
+        return songs.size();
     }
     
     public void playSong(){
@@ -96,6 +136,27 @@ public class GameManager {
         return answer.equals(songs.get(songIndex - 1).getCorrectAns());
     }
     
+    public void decLife(){
+        life--;
+    }
+    
+    public void incCountCorrect(){
+        countCorrect++;
+    }
+
+    public int countPoints(){
+        setPointByWeight();
+        totalPoints(points, countCorrect);
+        return totalPoints;
+    }
+    
+    public void totalPoints(int points, int countCorrect) {
+        this.points = points;
+        this.countCorrect = countCorrect;
+        
+        totalPoints += points * countCorrect;
+    }
+    
     public void setPointByWeight(){
         switch (weight) {
             case "K1":
@@ -115,66 +176,8 @@ public class GameManager {
         }
     }
 
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
- 
-    
-    public int getLife() {
-        return life;
-    }
-
-    public void setLife(int life) {
-        this.life = life;
-    }
-    
-    public void decLife(){
-        life--;
-    }
-
-    public int getCountCorrect() {
-        return countCorrect;
-    }
-
-    public void setCountCorrect(int countCorrect) {
-        this.countCorrect = countCorrect;
-    }
-    
-    public void incCountCorrect(){
-        countCorrect++;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
- 
-    public int countPoints(){
-        setPointByWeight();
-        setTotalPoints(points, countCorrect);
-        return totalPoints;
-    }
-    
-    public int getTotalPoints() {
-        return totalPoints;
-    }
-
-    public void setTotalPoints(int points, int countCorrect) {
-        this.points = points;
-        this.countCorrect = countCorrect;
-        
-        totalPoints += points * countCorrect;
-    }
-    
-    public ObservableList<User> getResults() {
-        UserDAO usdao = new UserDAO("users.xml");
+    public ObservableList<User> getResults(String s) {
+        UserDAO usdao = new UserDAO(s);
         List<User> list = new ArrayList<>();
 
         list = usdao.getUsers();

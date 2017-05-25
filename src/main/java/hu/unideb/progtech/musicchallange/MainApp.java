@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
-     private static GameManager gameManager;
+    private static GameManager gameManager;
 
     
     public static void newGameManager(){
@@ -29,7 +29,7 @@ public class MainApp extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
 
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("Music Quiz");
         stage.setScene(scene);
         stage.show();
         gameManager = new GameManager();

@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
             stage.setScene(scene);
             stage.show();
             
-            MainApp.getGameManager().getCurrentSong();
+            MainApp.getGameManager().currentSong();
             NewGameController gameController = fxmlLoader.getController();
             gameController.initData();
             
