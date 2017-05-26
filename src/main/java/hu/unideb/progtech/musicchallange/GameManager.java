@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange;
 
 import java.net.URL;
@@ -15,8 +11,7 @@ import javafx.scene.media.MediaPlayer;
 
 
 /**
- *
- * @author Krisz
+ * Játék folyását intéző osztály.
  */
 public class GameManager {
     private final String XMLFILE = "xml/audio.xml";
@@ -282,8 +277,8 @@ public class GameManager {
         return totalPoints;
     }
     /**
-     * A kapott pontok és "combo" számláló alapján
-     * növeli az összpontszámot.
+     * A kapott pontok és egymást követő jó válaszok
+     * alapján növeli az összpontszámot.
      * 
      * @param points adott pontszám
      * @param countCorrect egymást követő helyes válaszok száma

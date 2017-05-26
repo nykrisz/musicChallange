@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange.controller;
 
 import hu.unideb.progtech.musicchallange.MainApp;
@@ -21,10 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
- * @author Krisz
+ * Az alkalmazás játékos megadása Scene-jének {@code Controller} osztálya.
  */
+
 public class LoginController implements Initializable {
 
     @FXML
@@ -33,6 +28,12 @@ public class LoginController implements Initializable {
     @FXML
     private Label errorLabel;
     
+    /**
+     * Továbblépés a játékba.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     void handleButtonNext(ActionEvent event) throws IOException {
 
@@ -59,6 +60,12 @@ public class LoginController implements Initializable {
         }
     }
     
+    /**
+     * Visszalépés a főmenübe.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void handleButtonBack(ActionEvent event) throws IOException{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
@@ -72,11 +79,11 @@ public class LoginController implements Initializable {
             stage.show();
     }
     /**
-     * Initializes the controller class.
+     * Controller osztály inicializációja.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
     }    
     
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange;
 
 import java.io.File;
@@ -21,13 +17,19 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 /**
- *
- * @author Krisz
+ * A UDAO interfész implementációja.
  */
 public class UserDAO implements UDAO{
-    
+  
+    /**
+    * Fájl elérési útjának tárolására. 
+    */  
   private final String xmlFile;
 
+  /**
+   * Konstruktor a {@code UserDAO} objektum példányosításához.
+   * @param xmlFile fájl elérési útvonala
+   */
   public UserDAO(String xmlFile) {
     this.xmlFile = xmlFile;
   }

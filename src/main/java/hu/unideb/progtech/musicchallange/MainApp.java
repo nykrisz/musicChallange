@@ -8,16 +8,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ * A main függvényt tartalmazó osztály.
+ * 
+ */
 public class MainApp extends Application {
 
     private static GameManager gameManager;
 
-    
+    /**
+     * A gameManager-t inicializáló függvény.
+     * 
+     */
     public static void newGameManager(){
         gameManager = new GameManager();
     }
-     
+    /**
+     * Ebben az osztályban példányosított {@code GameManager}
+     * objektumot adja vissza.
+     * 
+     * @return példányosított GameManager 
+     */ 
     public static GameManager getGameManager() {
       return gameManager;
     }
@@ -37,12 +48,9 @@ public class MainApp extends Application {
 
  
     /**
-     * The main() method is ignored in correctly deployed JavaFX application.
-     * main() serves only as fallback in case the application can not be
-     * launched through deployment artifacts, e.g., in IDEs with limited FX
-     * support. NetBeans ignores main().
+     * Az applikáció main függvénye.
      *
-     * @param args the command line arguments
+     * @param args parancssori argumentumok
      */
     public static void main(String[] args) {
         launch(args);

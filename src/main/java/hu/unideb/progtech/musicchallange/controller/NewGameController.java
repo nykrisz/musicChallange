@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange.controller;
 
 import hu.unideb.progtech.musicchallange.MainApp;
@@ -37,9 +33,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- *
- * @author Krisz
+ * Az alkalmazás új játék Scene-jének {@code Controller} osztálya.
  */
+
 public class NewGameController implements Initializable{
     
     @FXML
@@ -77,7 +73,12 @@ public class NewGameController implements Initializable{
     UserDAO usdao = new UserDAO("users.xml");
     List<User> player = new ArrayList<>();
 
-    
+    /**
+     * Visszalépés a főmenübe.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
         MainApp.getGameManager().stopSong();
@@ -92,6 +93,12 @@ public class NewGameController implements Initializable{
         stage.show();
     }
     
+    /**
+     * Rádiógombok változását figyelő függvény.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void change(ActionEvent event) throws IOException{
         
@@ -133,6 +140,9 @@ public class NewGameController implements Initializable{
             }    
     }
     
+    /**
+     * Játékhoz szükséges adatok meghívása.
+     */
     public void initData(){
         stepSong();
         setLife();
@@ -210,7 +220,10 @@ public class NewGameController implements Initializable{
         player.add(MainApp.getGameManager().getCurrentUser());
         usdao.persistUsers(player);
     }
-     
+
+    /**
+     * Controller osztály inicializációja.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         

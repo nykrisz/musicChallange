@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange;
 
 import java.io.InputStream;
@@ -15,12 +11,21 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 /**
- *
- * @author Krisz
+ * SDAO interfész implementációja.
+ * 
  */
 public class SongDAO implements SDAO{
+    
+    /**
+     * Az {@code xml} elérési útvonalát
+     * tároló konstans változó.
+     */
     private final String xmlfile;
 
+    /**
+     * Konstruktor egy {@code SongDAO} objektum létrehozására.
+     * @param xmlfile {@code xml} elérési útvonala
+     */
     public SongDAO(String xmlfile) {
         this.xmlfile = xmlfile;
     }

@@ -1,38 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange;
 
 import java.util.Objects;
 
 /**
- *
- * @author Krisz
+ * Osztály egy játékos reprezentálására.
  */
 public class User {
     
     private String name;
     private int point;
 
+    /**
+     * {@code User} objektum létrehozására szolgáló konstruktor.
+     * 
+     * @param name játékos neve
+     * @param score játékos pontszáma
+     */
     public User(String name, int score) {
         this.name = name;
         this.point = score;
     }
 
+    /**
+     * Visszaadja a játékos nevét.
+     * 
+     * @return játékos neve 
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Beállítja a játékos nevét.
+     * 
+     * @param name játékos neve
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Visszaadja a játékos pontszámát.
+     * 
+     * @return játékos pontszáma 
+     */
     public int getScore() {
         return point;
     }
 
+    /**
+     * Beállítja a játékos pontszámát.
+     * 
+     * @param score játékos pontszáma. 
+     */
     public void setScore(int score) {
         this.point = score;
     }

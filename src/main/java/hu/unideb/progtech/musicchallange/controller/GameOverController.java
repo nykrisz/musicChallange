@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange.controller;
 
 import hu.unideb.progtech.musicchallange.MainApp;
@@ -21,14 +17,19 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Krisz
+ * Az alkalmazás befejező Scene-jének {@code Controller} osztálya.
  */
 public class GameOverController implements Initializable{
 
     @FXML
     private Label totalPoints;
     
+    /**
+     * Visszalépés a főmenübe.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void handleMainMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainMenu.fxml"));
@@ -41,7 +42,11 @@ public class GameOverController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-    
+    /**
+     * Kilépés a játékból.
+     * 
+     * @throws IOException 
+     */
     @FXML
     public void handleExit() throws IOException{
         Platform.exit();
@@ -49,7 +54,7 @@ public class GameOverController implements Initializable{
     
     
     /**
-     * Initializes the controller class.
+     * Controller osztály inicializációja.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

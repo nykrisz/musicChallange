@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange.controller;
 
 import hu.unideb.progtech.musicchallange.MainApp;
@@ -20,11 +16,17 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Krisz
+ * Az alkalmazás főmenü Scene-jének {@code Controller} osztálya.
  */
+
 public class MainMenuController implements Initializable{
     
+    /**
+     * Továbblépés a játékos megadásához.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void handleNewGame(ActionEvent event) throws IOException{
             
@@ -40,6 +42,12 @@ public class MainMenuController implements Initializable{
             
     }
     
+    /**
+     * Belépés a pontszámokhoz.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void handleHighScores(ActionEvent event) throws IOException{
         
@@ -54,6 +62,11 @@ public class MainMenuController implements Initializable{
             stage.show();    
     }
     
+    /**
+     * Kilépés a játékból.
+     * 
+     * @throws IOException 
+     */
     @FXML
     public void handleExit() throws IOException{
         Platform.exit();
@@ -61,7 +74,7 @@ public class MainMenuController implements Initializable{
     
     
     /**
-     * Initializes the controller class.
+     * Controller osztály inicializációja.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

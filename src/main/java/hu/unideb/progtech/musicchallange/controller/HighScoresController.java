@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange.controller;
 
 import hu.unideb.progtech.musicchallange.MainApp;
@@ -23,9 +19,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Krisz
+ * Az alkalmazás pontszámok Scene-jének {@code Controller} osztálya.
  */
+
 public class HighScoresController implements Initializable{
     
     @FXML
@@ -35,6 +31,12 @@ public class HighScoresController implements Initializable{
     @FXML
     private TableView<User> table;
 
+    /**
+     * Visszalépés a főmenübe.
+     * 
+     * @param event event
+     * @throws IOException 
+     */
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/mainMenu.fxml"));
@@ -48,7 +50,9 @@ public class HighScoresController implements Initializable{
         stage.show();
     }
     
-   
+    /**
+     * Controller osztály inicializációja.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
