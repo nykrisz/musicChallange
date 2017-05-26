@@ -175,7 +175,7 @@ public class GameManagerTest {
         gameManager.setCountCorrect(1);
         assertEquals(expected,gameManager.countPoints());
     }
-    
+ 
     @Test
     public void testGetResults(){
         User user = new User("TestName", 100);
