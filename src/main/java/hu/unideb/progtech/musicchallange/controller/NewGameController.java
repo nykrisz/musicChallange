@@ -73,7 +73,7 @@ public class NewGameController implements Initializable{
     UserDAO usdao = new UserDAO("users.xml");
     List<User> player = new ArrayList<>();
 
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(NewGameController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NewGameController.class);
     /**
      * Visszalépés a főmenübe.
      * 
@@ -104,7 +104,7 @@ public class NewGameController implements Initializable{
     @FXML
     public void change(ActionEvent event) throws IOException{
         
-            if(MainApp.getGameManager().getLife() != 0){    
+            if(MainApp.getGameManager().getLife() > 1){    
                 LOGGER.trace("játékosnak még van élete");
                 setAnswer();
                 
@@ -166,7 +166,7 @@ public class NewGameController implements Initializable{
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
         comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
-        LOGGER.info("következő szám, combo módosult");
+        LOGGER.info("következő szám lejátszása");
     }
     
     /**
@@ -271,7 +271,7 @@ public class NewGameController implements Initializable{
             @Override
             public void changed(ObservableValue<? extends String> ov, String t, String t1) {
                if(Integer.parseInt(t1) == 0){
-                   if(MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize() && MainApp.getGameManager().getLife() > 0){
+                   if(MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize() && MainApp.getGameManager().getLife() > 1){
                         MainApp.getGameManager().stopSong();
                         MainApp.getGameManager().decLife();
                         setLife();
@@ -280,11 +280,25 @@ public class NewGameController implements Initializable{
                        try {
                            gameOver();
                        } catch (IOException ex) {
-                           
+                           LOGGER.warn("nem sikerült véget vetni a játéknak");
                        }
                    }
                 }
             }
+        });
+        
+        lifeLabel.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(Integer.parseInt(newValue) < 1){
+                    try {
+                        gameOver();
+                    } catch (IOException ex) {
+                        LOGGER.warn("nem sikerült véget vetni a játéknak");
+                    }
+                }
+            }
+            
         });
     } 
     

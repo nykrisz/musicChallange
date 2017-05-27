@@ -14,6 +14,12 @@
       <email>ny.krisz04@gmail.com</email>
     </developer>
   </developers>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
   <scm>
     <url>https://github.com/nykrisz/musicChallange</url>
   </scm>

@@ -22,9 +22,9 @@
     <audio>
         <path>songs/buddy.mp3</path>
         <answerA>Buddy</answerA>
-        <answerB></answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerB>Pop Dance</answerB>
+        <answerC>Sexy</answerC>
+        <answerD>Psychedelic</answerD>
         <correctAns>Buddy</correctAns>
         <weight>K1</weight>
     </audio>
@@ -67,9 +67,9 @@
     <audio>
         <path>songs/energy.mp3</path>
         <answerA>Energy</answerA>
-        <answerB></answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerB>Instinct</answerB>
+        <answerC>The Elevator Bossa Nova</answerC>
+        <answerD>India</answerD>
         <correctAns>Energy</correctAns>
         <weight>K1</weight>
     </audio>
