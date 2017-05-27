@@ -36,7 +36,7 @@ public class UserDAOTest {
     public TemporaryFolder folder= new TemporaryFolder();
     
     @Test
-    public void testPresistUsers() {
+    public void testPersistUsers() {
         
         try {
             File createdFile= folder.newFile("userTest.xml");
