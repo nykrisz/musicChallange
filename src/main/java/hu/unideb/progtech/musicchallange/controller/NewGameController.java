@@ -148,6 +148,12 @@ public class NewGameController implements Initializable{
         setLife();
     }
     
+    /**
+     * Visszaszámláló meghívása, léptetés a következő zenére,
+     * az aktuális zenéhez tartozó választási lehetőségek beállítása
+     * és egymást követő helyes válaszok jelzése.
+     * 
+     */
     private void stepSong(){
         countdown();
         Song s = MainApp.getGameManager().getNextSong();
@@ -155,10 +161,19 @@ public class NewGameController implements Initializable{
         comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
     }
     
+    /**
+     * A játékos életeit jelző címkét állítja be.
+     */
     private void setLife(){
         lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
     }
     
+    /**
+     * Kiírja a rádiógombokhoz az aktuális zenéhez
+     * tartozó választási lehetőségeket.
+     * 
+     * @param s aktuális zene 
+     */
     private void setLabels(Song s){
         MainApp.getGameManager().playSong();
         
@@ -168,6 +183,10 @@ public class NewGameController implements Initializable{
         rb4.setText(s.getAnswerD());
     }
 
+    /**
+     * A {@code chosen} változóhoz hozzárendeli
+     * a kiválasztott választ.
+     */
     private void setAnswer(){
         if(rb1.isSelected()){
             chosen = rb1.getText();
@@ -179,7 +198,9 @@ public class NewGameController implements Initializable{
             chosen = rb4.getText();
         }
     }
-    
+    /**
+     * A visszaszámláló címkét módosító függvény.
+     */
     private void countdown(){
         if (timeline != null) {
             timeline.stop();
@@ -203,7 +224,14 @@ public class NewGameController implements Initializable{
                 }));
         timeline.playFromStart();
     }    
-    
+
+    /**
+     * Átléptet a játék vége Scene-re, megállítja a zene lejátszást,
+     * valamint a számlálót, és a játékos nevét és pontszámát beleteszi
+     * egy {@code User} típusú listába.
+     * 
+     * @throws IOException 
+     */
     private void gameOver() throws IOException{
         MainApp.getGameManager().stopSong();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));

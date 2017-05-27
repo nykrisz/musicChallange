@@ -104,6 +104,15 @@ public class GameManager {
     }
     
     /**
+     * Visszaadja a zene elérési útvonalát.
+     * 
+     * @return zene elérési útvonala
+     */
+    public String getPath(){
+        return path;
+    }
+    
+    /**
      * Visszaadja a zene súlyát,
      * melynek a pontszámításnál van szerepe.
      * 

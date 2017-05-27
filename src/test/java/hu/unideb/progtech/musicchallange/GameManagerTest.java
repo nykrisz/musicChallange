@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hu.unideb.progtech.musicchallange;
 
 
@@ -188,6 +184,18 @@ public class GameManagerTest {
 
         assertEquals(expResult, result);
     }
-   
     
+    @Test
+    public void testGetUxml(){
+        String expected = "users.xml";
+        assertEquals(expected,gameManager.getUxml());
+        
+    }
+   
+    @Test
+    public void testSetPath(){
+        String expected = "testPath";
+        gameManager.setPath("testPath");
+        assertEquals(expected,gameManager.getPath());
+    }
 }
