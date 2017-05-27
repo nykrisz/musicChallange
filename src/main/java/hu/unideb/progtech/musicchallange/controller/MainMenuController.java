@@ -14,12 +14,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Az alkalmazás főmenü Scene-jének {@code Controller} osztálya.
  */
 
 public class MainMenuController implements Initializable{
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainMenuController.class);
     
     /**
      * Továbblépés a játékos megadásához.
@@ -39,7 +43,7 @@ public class MainMenuController implements Initializable{
             
             stage.setScene(scene);
             stage.show();
-            
+            LOGGER.trace("login képernyő betöltve");
     }
     
     /**
@@ -59,7 +63,8 @@ public class MainMenuController implements Initializable{
             Stage stage = (Stage) source.getScene().getWindow();
 
             stage.setScene(scene);
-            stage.show();    
+            stage.show();
+            LOGGER.trace("pontszámok betöltve");
     }
     
     /**
@@ -70,6 +75,7 @@ public class MainMenuController implements Initializable{
     @FXML
     public void handleExit() throws IOException{
         Platform.exit();
+        LOGGER.trace("kilépés a játékból");
     }
     
     

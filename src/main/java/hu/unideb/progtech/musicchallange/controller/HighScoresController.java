@@ -17,6 +17,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Az alkalmazás pontszámok Scene-jének {@code Controller} osztálya.
@@ -31,6 +33,10 @@ public class HighScoresController implements Initializable{
     @FXML
     private TableView<User> table;
 
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(HighScoresController.class);
+
+    
     /**
      * Visszalépés a főmenübe.
      * 
@@ -48,6 +54,7 @@ public class HighScoresController implements Initializable{
         
         stage.setScene(scene);
         stage.show();
+        LOGGER.trace("visszalépés a főmenübe");
     }
     
     /**

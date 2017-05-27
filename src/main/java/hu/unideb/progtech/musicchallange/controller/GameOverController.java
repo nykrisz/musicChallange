@@ -15,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Az alkalmazás befejező Scene-jének {@code Controller} osztálya.
@@ -23,6 +25,8 @@ public class GameOverController implements Initializable{
 
     @FXML
     private Label totalPoints;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameOverController.class);
     
     /**
      * Visszalépés a főmenübe.
@@ -41,6 +45,7 @@ public class GameOverController implements Initializable{
         
         stage.setScene(scene);
         stage.show();
+        LOGGER.trace("visszalépés a főmenübe");
     }
     /**
      * Kilépés a játékból.
@@ -50,6 +55,7 @@ public class GameOverController implements Initializable{
     @FXML
     public void handleExit() throws IOException{
         Platform.exit();
+        LOGGER.trace("kilépés a játékból");
     }
     
     

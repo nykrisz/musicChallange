@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -15,6 +17,8 @@ import org.w3c.dom.NodeList;
  * 
  */
 public class SongDAO implements SDAO{
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SongDAO.class);
     
     /**
      * Az {@code xml} elérési útvonalát
@@ -56,11 +60,12 @@ public class SongDAO implements SDAO{
                 eElement.getElementsByTagName("correctAns").item(0).getTextContent(),
                 eElement.getElementsByTagName("weight").item(0).getTextContent()));
           }
-
+          LOGGER.trace("zenék beolvasása megtörtént");
           return songList;
         } catch (Exception e) {
           e.printStackTrace();
 
+          LOGGER.trace("zenék beolvasása nem sikerült");
           return null;
         }
     }

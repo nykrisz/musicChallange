@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Az alkalmazás játékos megadása Scene-jének {@code Controller} osztálya.
@@ -27,6 +29,8 @@ public class LoginController implements Initializable {
     
     @FXML
     private Label errorLabel;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
     
     /**
      * Továbblépés a játékba.
@@ -54,8 +58,9 @@ public class LoginController implements Initializable {
             MainApp.getGameManager().currentSong();
             NewGameController gameController = fxmlLoader.getController();
             gameController.initData();
-            
+            LOGGER.info("a játék elkezdődött");
         } else {
+            LOGGER.info("nem megfelelő név");
             errorLabel.setText("add meg a neved!");
         }
     }
@@ -77,6 +82,7 @@ public class LoginController implements Initializable {
             
             stage.setScene(scene);
             stage.show();
+            LOGGER.trace("visszalépés a főmenübe");
     }
     /**
      * Controller osztály inicializációja.

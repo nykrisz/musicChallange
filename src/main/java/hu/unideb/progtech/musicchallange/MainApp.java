@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A main függvényt tartalmazó osztály.
@@ -14,6 +16,8 @@ import javafx.stage.Stage;
  */
 public class MainApp extends Application {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainApp.class);
+    
     private static GameManager gameManager;
 
     /**
@@ -44,6 +48,7 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
         gameManager = new GameManager();
+        LOGGER.info("a játék betöltve");
     }
 
  

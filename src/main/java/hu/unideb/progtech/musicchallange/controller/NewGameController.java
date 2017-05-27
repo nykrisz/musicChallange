@@ -10,8 +10,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
@@ -31,6 +29,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 /**
  * Az alkalmazás új játék Scene-jének {@code Controller} osztálya.
@@ -73,6 +73,7 @@ public class NewGameController implements Initializable{
     UserDAO usdao = new UserDAO("users.xml");
     List<User> player = new ArrayList<>();
 
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(NewGameController.class);
     /**
      * Visszalépés a főmenübe.
      * 
@@ -91,6 +92,7 @@ public class NewGameController implements Initializable{
         Stage stage = (Stage) source.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+        LOGGER.trace("visszalépés a főmenübe");
     }
     
     /**
@@ -103,10 +105,11 @@ public class NewGameController implements Initializable{
     public void change(ActionEvent event) throws IOException{
         
             if(MainApp.getGameManager().getLife() != 0){    
+                LOGGER.trace("játékosnak még van élete");
                 setAnswer();
                 
                 if (MainApp.getGameManager().isAnswerCorrect(chosen)) {            
-
+                    LOGGER.info("jó válasz");
                     MainApp.getGameManager().incCountCorrect();
                     MainApp.getGameManager().countPoints();
                     
@@ -118,9 +121,11 @@ public class NewGameController implements Initializable{
                         rb3.setSelected(false);
                         rb4.setSelected(false);
                     }else{
+                        LOGGER.trace("nincs következő zene");
                         gameOver();
                     }
                 }else{
+                    LOGGER.info("rossz válasz");
                     MainApp.getGameManager().setCountCorrect(0);
                     MainApp.getGameManager().stopSong();
                     MainApp.getGameManager().decLife();
@@ -132,10 +137,12 @@ public class NewGameController implements Initializable{
                         rb3.setSelected(false);
                         rb4.setSelected(false);
                     }else{
+                        LOGGER.trace("nincs következő zene");
                         gameOver();
                     }
                 }
             }else{
+                LOGGER.info("elfogyott a játékos élete");
                 gameOver();
             }    
     }
@@ -159,6 +166,7 @@ public class NewGameController implements Initializable{
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
         comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
+        LOGGER.info("következő szám, combo módosult");
     }
     
     /**
@@ -166,6 +174,7 @@ public class NewGameController implements Initializable{
      */
     private void setLife(){
         lifeLabel.setText(Integer.toString(MainApp.getGameManager().getLife()));
+        LOGGER.trace("életek beállítva");
     }
     
     /**
@@ -181,6 +190,7 @@ public class NewGameController implements Initializable{
         rb2.setText(s.getAnswerB());
         rb3.setText(s.getAnswerC());
         rb4.setText(s.getAnswerD());
+        LOGGER.trace("válaszok beállítva");
     }
 
     /**
@@ -197,6 +207,7 @@ public class NewGameController implements Initializable{
         }if(rb4.isSelected()){
             chosen = rb4.getText();
         }
+        LOGGER.trace("A játékos kiválasztott egy választ.");
     }
     /**
      * A visszaszámláló címkét módosító függvény.
@@ -247,6 +258,7 @@ public class NewGameController implements Initializable{
         player.addAll(usdao.getUsers());
         player.add(MainApp.getGameManager().getCurrentUser());
         usdao.persistUsers(player);
+        LOGGER.info("a játék véget ért");
     }
 
     /**
@@ -268,7 +280,7 @@ public class NewGameController implements Initializable{
                        try {
                            gameOver();
                        } catch (IOException ex) {
-                           Logger.getLogger(NewGameController.class.getName()).log(Level.SEVERE, null, ex);
+                           
                        }
                    }
                 }
