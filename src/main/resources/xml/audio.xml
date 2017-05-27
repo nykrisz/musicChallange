@@ -1,28 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
 
 <audios>
     <audio>
-        <path>songs/chamber.mp3</path>
-        <answerA>TNT</answerA>
-        <answerB>Fear of the dark</answerB>
-        <answerC>Chamber</answerC>
-        <answerD>Welcome to the jungle</answerD>
-        <correctAns>Chamber</correctAns>
+        <path>songs/anewbeginning.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC>A new beginning</answerC>
+        <answerD></answerD>
+        <correctAns>A new beginning</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
-        <path>songs/sugarrush.mp3</path>
-        <answerA>Sugar Rush</answerA>
-        <answerB>carton</answerB>
-        <answerC>rock</answerC>
-        <answerD>welcome</answerD>
-        <correctAns>Sugar Rush</correctAns>
+        <path>songs/badass.mp3</path>
+        <answerA></answerA>
+        <answerB>Badass</answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Badass</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/buddy.mp3</path>
+        <answerA>Buddy</answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Buddy</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/clapandyell.mp3</path>
+        <answerA>Clap and yell</answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Clap and yell</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/clearday.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD>Clearday</answerD>
+        <correctAns>Clearday</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/countryboy.mp3</path>
+        <answerA></answerA>
+        <answerB>Coutryboy</answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Coutryboy</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/dance.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC>Dance</answerC>
+        <answerD></answerD>
+        <correctAns>Dance</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/energy.mp3</path>
+        <answerA>Energy</answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Energy</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/epic.mp3</path>
+        <answerA>Epic</answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Epic</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/extremeaction.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD>Extremeaction</answerD>
+        <correctAns>Extremeaction</correctAns>
+        <weight>K1</weight>
+    </audio>
+    <audio>
+        <path>songs/funnysong.mp3</path>
+        <answerA></answerA>
+        <answerB>Funnysong</answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Funnysong</correctAns>
         <weight>K2</weight>
+    </audio>
+    <audio>
+        <path>songs/happyrock.mp3</path>
+        <answerA></answerA>
+        <answerB>Happy rock</answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Happy rock</correctAns>
+        <weight>K2</weight>
+    </audio>
+    <audio>
+        <path>songs/house.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC>House</answerC>
+        <answerD></answerD>
+        <correctAns>House</correctAns>
+        <weight>K2</weight>
+    </audio>
+    <audio>
+        <path>songs/memories.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD>Memories</answerD>
+        <correctAns>Memories</correctAns>
+        <weight>K2</weight>
+    </audio>
+    <audio>
+        <path>songs/psychedelic.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC>Psychedelic</answerC>
+        <answerD></answerD>
+        <correctAns>Psychedelic</correctAns>
+        <weight>K2</weight>
+    </audio>
+    <audio>
+        <path>songs/retrosoul.mp3</path>
+        <answerA>Retro soul</answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Retro soul</correctAns>
+        <weight>K2</weight>
+    </audio>
+    <audio>
+        <path>songs/rumble.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD>Rumble</answerD>
+        <correctAns>Rumble</correctAns>
+        <weight>K3</weight>
+    </audio>
+    <audio>
+        <path>songs/scifi.mp3</path>
+        <answerA></answerA>
+        <answerB>Sci-fi</answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Sci-fi</correctAns>
+        <weight>K3</weight>
+    </audio>
+    <audio>
+        <path>songs/sunny.mp3</path>
+        <answerA>Sunny</answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Sunny</correctAns>
+        <weight>K3</weight>
+    </audio>
+    <audio>
+        <path>songs/sweet.mp3</path>
+        <answerA></answerA>
+        <answerB>Sweet</answerB>
+        <answerC></answerC>
+        <answerD></answerD>
+        <correctAns>Sweet</correctAns>
+        <weight>K4</weight>
+    </audio>
+    <audio>
+        <path>songs/thejazzpiano.mp3</path>
+        <answerA></answerA>
+        <answerB></answerB>
+        <answerC></answerC>
+        <answerD>The jazz piano</answerD>
+        <correctAns>The jazz piano</correctAns>
+        <weight>K4</weight>
     </audio>
 </audios>
