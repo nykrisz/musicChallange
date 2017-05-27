@@ -3,19 +3,19 @@
 <audios>
     <audio>
         <path>songs/anewbeginning.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
+        <answerA>The jazz piano</answerA>
+        <answerB>House</answerB>
         <answerC>A new beginning</answerC>
-        <answerD></answerD>
+        <answerD>Funnysong</answerD>
         <correctAns>A new beginning</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/badass.mp3</path>
-        <answerA></answerA>
+        <answerA>Sad Day</answerA>
         <answerB>Badass</answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerC>The Lounge</answerC>
+        <answerD>Tomorrow</answerD>
         <correctAns>Badass</correctAns>
         <weight>K1</weight>
     </audio>
@@ -30,37 +30,37 @@
     </audio>
     <audio>
         <path>songs/clapandyell.mp3</path>
-        <answerA>Clap and yell</answerA>
-        <answerB></answerB>
-        <answerC></answerC>
-        <answerD></answerD>
-        <correctAns>Clap and yell</correctAns>
+        <answerA>Clap and Yell</answerA>
+        <answerB>Clear Day</answerB>
+        <answerC>Funky Element</answerC>
+        <answerD>Slow Motion</answerD>
+        <correctAns>Clap and Yell</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/clearday.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
-        <answerC></answerC>
+        <answerA>Going Higher</answerA>
+        <answerB>Energy</answerB>
+        <answerC>Better Days</answerC>
         <answerD>Clearday</answerD>
         <correctAns>Clearday</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/countryboy.mp3</path>
-        <answerA></answerA>
+        <answerA>Ukulele</answerA>
         <answerB>Coutryboy</answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerC>Happy Rock</answerC>
+        <answerD>Jazzy Frenchy</answerD>
         <correctAns>Coutryboy</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/dance.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
+        <answerA>Little Idea</answerA>
+        <answerB>Epic</answerB>
         <answerC>Dance</answerC>
-        <answerD></answerD>
+        <answerD>Funny Song</answerD>
         <correctAns>Dance</correctAns>
         <weight>K1</weight>
     </audio>
@@ -76,116 +76,116 @@
     <audio>
         <path>songs/epic.mp3</path>
         <answerA>Epic</answerA>
-        <answerB></answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerB>Moose</answerB>
+        <answerC>Pop Dance</answerC>
+        <answerD>Tenderness</answerD>
         <correctAns>Epic</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/extremeaction.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
-        <answerC></answerC>
+        <answerA>November</answerA>
+        <answerB>Straight</answerB>
+        <answerC>Rumble</answerC>
         <answerD>Extremeaction</answerD>
         <correctAns>Extremeaction</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/funnysong.mp3</path>
-        <answerA></answerA>
+        <answerA>Jazz Comedy</answerA>
         <answerB>Funnysong</answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerC>Actionable</answerC>
+        <answerD>Little Planet</answerD>
         <correctAns>Funnysong</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/happyrock.mp3</path>
-        <answerA></answerA>
+        <answerA>Funky Suspense</answerA>
         <answerB>Happy rock</answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerC>Badass</answerC>
+        <answerD>Groovy Hip Hop</answerD>
         <correctAns>Happy rock</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/house.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
+        <answerA>Relaxing</answerA>
+        <answerB>New Dawn</answerB>
         <answerC>House</answerC>
-        <answerD></answerD>
+        <answerD>Creepy</answerD>
         <correctAns>House</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/memories.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
-        <answerC></answerC>
+        <answerA>The Duel</answerA>
+        <answerB>Enigmatic</answerB>
+        <answerC>Instinct</answerC>
         <answerD>Memories</answerD>
         <correctAns>Memories</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/psychedelic.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
+        <answerA>Country Boy</answerA>
+        <answerB>Deep Blue</answerB>
         <answerC>Psychedelic</answerC>
-        <answerD></answerD>
+        <answerD>Inspire</answerD>
         <correctAns>Psychedelic</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/retrosoul.mp3</path>
         <answerA>Retro soul</answerA>
-        <answerB></answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerB>Adventure</answerB>
+        <answerC>Perception</answerC>
+        <answerD>Small Guitar</answerD>
         <correctAns>Retro soul</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/rumble.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
-        <answerC></answerC>
+        <answerA>Fun Day</answerA>
+        <answerB>Once Again</answerB>
+        <answerC>Photo Album</answerC>
         <answerD>Rumble</answerD>
         <correctAns>Rumble</correctAns>
         <weight>K3</weight>
     </audio>
     <audio>
         <path>songs/scifi.mp3</path>
-        <answerA></answerA>
-        <answerB>Sci-fi</answerB>
-        <answerC></answerC>
-        <answerD></answerD>
-        <correctAns>Sci-fi</correctAns>
+        <answerA>Beyond The Line</answerA>
+        <answerB>Sci Fi</answerB>
+        <answerC>Punky</answerC>
+        <answerD>Birth of a Hero</answerD>
+        <correctAns>Sci Fi</correctAns>
         <weight>K3</weight>
     </audio>
     <audio>
         <path>songs/sunny.mp3</path>
         <answerA>Sunny</answerA>
-        <answerB></answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerB>Piano Moment</answerB>
+        <answerC>Love</answerC>
+        <answerD>House</answerD>
         <correctAns>Sunny</correctAns>
         <weight>K3</weight>
     </audio>
     <audio>
         <path>songs/sweet.mp3</path>
-        <answerA></answerA>
+        <answerA>Acoustic Breeze</answerA>
         <answerB>Sweet</answerB>
-        <answerC></answerC>
-        <answerD></answerD>
+        <answerC>Cute</answerC>
+        <answerD>Dubstep</answerD>
         <correctAns>Sweet</correctAns>
         <weight>K4</weight>
     </audio>
     <audio>
         <path>songs/thejazzpiano.mp3</path>
-        <answerA></answerA>
-        <answerB></answerB>
-        <answerC></answerC>
+        <answerA>Cinematic</answerA>
+        <answerB>Ofelia's dream</answerB>
+        <answerC>Extreme Action</answerC>
         <answerD>The jazz piano</answerD>
         <correctAns>The jazz piano</correctAns>
         <weight>K4</weight>
