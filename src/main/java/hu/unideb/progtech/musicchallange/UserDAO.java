@@ -65,7 +65,7 @@ public class UserDAO implements UDAO{
             return listUsers;
 
         } catch (Exception e) {
-            SEC_LOGGER.trace("nincsenek korábbi eredmények");
+            SEC_LOGGER.trace("A fájl {} nem olvasható",xmlFile);
             return new ArrayList<User>();
         }
     }
