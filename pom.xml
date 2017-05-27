@@ -37,6 +37,13 @@
         <url>https://github.com/nykrisz/musicChallange</url>
     </scm>
     
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+    
     <build>
         <plugins>
             <plugin>
