@@ -1,10 +1,16 @@
 
 package hu.unideb.progtech.musicchallange;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static org.junit.Assert.assertEquals;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 /**
  *
@@ -26,20 +32,29 @@ public class UserDAOTest {
         assertEquals(expResult, result);
     }
     
+    @Rule
+    public TemporaryFolder folder= new TemporaryFolder();
+    
     @Test
     public void testPresistUsers() {
-        UserDAO udao = new UserDAO("userTest.xml");
-
-        User u = new User("TestName", 100);
-
-        List<User> expResult = new ArrayList<User>();
-
-        expResult.add(u);
-
-        udao.persistUsers(expResult);
-
-        List<User> result = udao.getUsers();
-
-        assertEquals(expResult, result);
+        
+        try {
+            File createdFile= folder.newFile("userTest.xml");
+            UserDAO udao = new UserDAO(createdFile.toString());
+            
+            User u = new User("TestName", 100);
+            
+            List<User> expResult = new ArrayList<User>();
+            
+            expResult.add(u);
+            
+            udao.persistUsers(expResult);
+            
+            List<User> result = udao.getUsers();
+            
+            assertEquals(expResult, result);
+        } catch (IOException ex) {
+            Logger.getLogger(UserDAOTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
