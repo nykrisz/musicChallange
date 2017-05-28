@@ -102,12 +102,12 @@ public class NewGameController implements Initializable{
      * @throws IOException 
      */
     @FXML
-    public void change(ActionEvent event) throws IOException{
+    public void change() throws IOException{
         
-            if(MainApp.getGameManager().getLife() > 1){    
+            if(MainApp.getGameManager().getLife() > 0){    
                 LOGGER.trace("játékosnak még van élete");
                 setAnswer();
-                
+                MainApp.getGameManager().stopSong();
                 if (MainApp.getGameManager().isAnswerCorrect(chosen)) {            
                     LOGGER.info("jó válasz");
                     MainApp.getGameManager().incCountCorrect();
@@ -130,7 +130,7 @@ public class NewGameController implements Initializable{
                     MainApp.getGameManager().stopSong();
                     MainApp.getGameManager().decLife();
                     setLife();
-                    if (MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize()) {
+                    if (MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize() && MainApp.getGameManager().getLife() !=0 ) {
                         stepSong();
                         rb1.setSelected(false);
                         rb2.setSelected(false);
@@ -165,7 +165,7 @@ public class NewGameController implements Initializable{
         countdown();
         Song s = MainApp.getGameManager().getNextSong();
         setLabels(s);
-        comboLabel.setText(Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
+        comboLabel.setText("Combo:  " + Integer.toString(MainApp.getGameManager().getCountCorrect()+1) + "X");
         LOGGER.info("következő szám lejátszása");
     }
     
@@ -226,8 +226,7 @@ public class NewGameController implements Initializable{
                       @Override
                       public void handle(Event event) {
                         time--;
-                        timerLabel.setText(
-                              time.toString());
+                        timerLabel.setText(time.toString());
                         if (time <= 0) {
                             timeline.stop();
                         }
@@ -273,10 +272,15 @@ public class NewGameController implements Initializable{
                if(Integer.parseInt(t1) == 0){
                    if(MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize() && MainApp.getGameManager().getLife() > 1){
                         MainApp.getGameManager().stopSong();
-                        MainApp.getGameManager().decLife();
-                        LOGGER.info("lejárt az idő");
-                        setLife();
-                        stepSong();
+                        try {
+                           LOGGER.info("lejárt az idő");
+                           change();
+                        } catch (IOException ex) {
+                           LOGGER.warn("nem sikerült váltani");
+                        }
+                        
+                        //setLife();
+                        //stepSong();
                    }else{
                        try {
                            LOGGER.info("nincs több élet");
@@ -289,19 +293,6 @@ public class NewGameController implements Initializable{
             }
         });
         
-        lifeLabel.textProperty().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(Integer.parseInt(newValue) < 1){
-                    try {
-                        gameOver();
-                    } catch (IOException ex) {
-                        LOGGER.warn("nem sikerült véget vetni a játéknak");
-                    }
-                }
-            }
-            
-        });
     } 
     
 }
