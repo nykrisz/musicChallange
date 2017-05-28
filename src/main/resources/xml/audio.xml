@@ -49,10 +49,10 @@
     <audio>
         <path>songs/countryboy.mp3</path>
         <answerA>Ukulele</answerA>
-        <answerB>Coutryboy</answerB>
+        <answerB>Coutry Boy</answerB>
         <answerC>Happy Rock</answerC>
         <answerD>Jazzy Frenchy</answerD>
-        <correctAns>Coutryboy</correctAns>
+        <correctAns>Coutry Boy</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
@@ -87,26 +87,26 @@
         <answerA>November</answerA>
         <answerB>Straight</answerB>
         <answerC>Rumble</answerC>
-        <answerD>Extremeaction</answerD>
-        <correctAns>Extremeaction</correctAns>
+        <answerD>Extreme Action</answerD>
+        <correctAns>Extreme Action</correctAns>
         <weight>K1</weight>
     </audio>
     <audio>
         <path>songs/funnysong.mp3</path>
         <answerA>Jazz Comedy</answerA>
-        <answerB>Funnysong</answerB>
+        <answerB>Funny Song</answerB>
         <answerC>Actionable</answerC>
         <answerD>Little Planet</answerD>
-        <correctAns>Funnysong</correctAns>
+        <correctAns>Funny Song</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
         <path>songs/happyrock.mp3</path>
         <answerA>Funky Suspense</answerA>
-        <answerB>Happy rock</answerB>
+        <answerB>Happy Rock</answerB>
         <answerC>Badass</answerC>
         <answerD>Groovy Hip Hop</answerD>
-        <correctAns>Happy rock</correctAns>
+        <correctAns>Happy Rock</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
@@ -138,11 +138,11 @@
     </audio>
     <audio>
         <path>songs/retrosoul.mp3</path>
-        <answerA>Retro soul</answerA>
+        <answerA>Retro Soul</answerA>
         <answerB>Adventure</answerB>
         <answerC>Perception</answerC>
         <answerD>Small Guitar</answerD>
-        <correctAns>Retro soul</correctAns>
+        <correctAns>Retro Soul</correctAns>
         <weight>K2</weight>
     </audio>
     <audio>
@@ -186,8 +186,8 @@
         <answerA>Cinematic</answerA>
         <answerB>Ofelia's dream</answerB>
         <answerC>Extreme Action</answerC>
-        <answerD>The jazz piano</answerD>
-        <correctAns>The jazz piano</correctAns>
+        <answerD>The Jazz Piano</answerD>
+        <correctAns>The Jazz Piano</correctAns>
         <weight>K4</weight>
     </audio>
 </audios>
