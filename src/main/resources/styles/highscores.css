@@ -38,3 +38,11 @@
     -fx-text-fill: linear-gradient(#EAC67A,#984B43);
     -fx-background-color: linear-gradient(#233237,black);
 }
+
+
+.table-view .column-header .label{
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}

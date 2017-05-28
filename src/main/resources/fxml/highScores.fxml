@@ -14,9 +14,9 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutX="14.0" layoutY="96.0" maxHeight="245.0" maxWidth="290.0" minHeight="245.0" minWidth="290.0" prefHeight="245.0" prefWidth="290.0" stylesheets="@../styles/highscores.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0">
+      <TableView id="table" fx:id="table" layoutX="14.0" layoutY="96.0" maxHeight="245.0" maxWidth="290.0" minHeight="245.0" minWidth="290.0" prefHeight="245.0" prefWidth="290.0" stylesheets="@../styles/highscores.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0">
         <columns>
-          <TableColumn id="nameCol" fx:id="userName" editable="false" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" resizable="false" text="Name" />
+          <TableColumn id="nameCol" fx:id="userName" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" resizable="false" text="Name" />
           <TableColumn id="scoreCol" fx:id="userPoint" editable="false" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" resizable="false" sortType="DESCENDING" text="Score" />
         </columns>
       </TableView>
