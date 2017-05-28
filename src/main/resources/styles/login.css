@@ -1,0 +1,50 @@
+/* 
+    Created on : 2017.05.28., 19:34:34
+    Author     : Krisz
+*/
+
+
+#AnchorPane{
+    -fx-background-color: linear-gradient(#18121E,#09092a);
+}
+
+#nextBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#backBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#textField{
+    -fx-background-color:#ccbfd9;
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#userLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#errorLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}

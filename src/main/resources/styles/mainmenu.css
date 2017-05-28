@@ -1,0 +1,43 @@
+/* 
+    Created on : 2017.05.28., 18:16:01
+    Author     : Krisz
+*/
+
+#AnchorPane{
+    -fx-background-color: linear-gradient(#18121E,#09092a);
+}
+
+#titleLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 28px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#newgameBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#highscoresBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#exitBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+

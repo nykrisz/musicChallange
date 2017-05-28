@@ -1,0 +1,40 @@
+/* 
+    Created on : 2017.05.28., 19:02:41
+    Author     : Krisz
+*/
+
+#AnchorPane{
+    -fx-background-color: linear-gradient(#18121E,#09092a);
+}
+
+#highscoresLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 28px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#backBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#nameCol{
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+    -fx-background-color: linear-gradient(#233237,black);
+}
+
+#scoreCol{
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+    -fx-background-color: linear-gradient(#233237,black);
+}

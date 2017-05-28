@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="320.0" minHeight="400.0" minWidth="320.0" prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.GameOverController">
+<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="320.0" minHeight="400.0" minWidth="320.0" prefHeight="400.0" prefWidth="320.0" stylesheets="@../styles/gameover.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.GameOverController">
    <children>
-      <Label alignment="CENTER" layoutX="90.0" layoutY="52.0" maxHeight="40.0" maxWidth="140.0" minHeight="40.0" minWidth="140.0" prefHeight="40.0" prefWidth="140.0" text="Game Over" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="52.0">
+      <Label fx:id="gameOverLbl" alignment="CENTER" layoutX="90.0" layoutY="52.0" maxHeight="40.0" maxWidth="140.0" minHeight="40.0" minWidth="140.0" prefHeight="40.0" prefWidth="140.0" text="Game Over" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="52.0">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="98.0" layoutY="139.0" maxHeight="35.0" maxWidth="125.0" minHeight="35.0" minWidth="125.0" prefHeight="35.0" prefWidth="125.0" text="Your Score:" AnchorPane.bottomAnchor="235.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="130.0">
+      <Label fx:id="yourScoreLbl" alignment="CENTER" layoutX="98.0" layoutY="139.0" maxHeight="35.0" maxWidth="125.0" minHeight="35.0" minWidth="125.0" prefHeight="35.0" prefWidth="125.0" text="Your Score:" AnchorPane.bottomAnchor="235.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="130.0">
          <font>
             <Font size="25.0" />
          </font>
@@ -22,12 +22,12 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="35.0" layoutY="305.0" maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleMainMenu" prefHeight="35.0" prefWidth="100.0" text="Main Menu" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="305.0">
+      <Button fx:id="mainMenu" alignment="CENTER" layoutX="35.0" layoutY="305.0" maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleMainMenu" prefHeight="35.0" prefWidth="100.0" text="Main Menu" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="305.0">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="185.0" layoutY="305.0" maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="35.0" prefWidth="100.0" text="Exit Game" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="305.0">
+      <Button fx:id="exitGameBtn" alignment="CENTER" layoutX="185.0" layoutY="305.0" maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="35.0" prefWidth="100.0" text="Exit Game" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="305.0">
          <font>
             <Font size="14.0" />
          </font>

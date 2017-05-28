@@ -1,0 +1,48 @@
+
+/* 
+    Created on : 2017.05.28., 17:22:52
+    Author     : Krisz
+*/
+
+#AnchorPane{
+    -fx-background-color: linear-gradient(#18121E,#09092a);
+}
+
+#gameOverLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 28px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#yourScoreLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 26px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#totalPoints{
+    -fx-font-family: "serif";
+    -fx-font-size: 26px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#mainMenu{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#exitGameBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}

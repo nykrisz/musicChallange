@@ -1,0 +1,87 @@
+/* 
+    Created on : 2017.05.28., 19:45:25
+    Author     : Krisz
+*/
+
+#AnchorPane{
+    -fx-background-color: linear-gradient(#18121E,#09092a);
+}
+
+#comboLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 24px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#lifeLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 24px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#e3b44f,#dda222);
+}
+
+#timeLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 24px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#92b0b9,#83a4af);
+}
+
+#backBtn{
+    -fx-background-color:linear-gradient(#EAC67A,#984b43);
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#233237,black);
+    -fx-effect: dropshadow( gaussian , #e3b44f , 1, 0.0 , 0 , 1);
+}
+
+#rb1{
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#rb2{
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#rb3{
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#rb4{
+    -fx-font-family: "serif";
+    -fx-font-size: 20px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#EAC67A,#984B43);
+}
+
+#questLbl{
+    -fx-font-family: "serif";
+    -fx-font-size: 18px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#e3b44f,#dda222);
+}
+
+#life{
+    -fx-font-family: "serif";
+    -fx-font-size: 26px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#e3b44f,#dda222);
+}
+
+#timeleft{
+    -fx-font-family: "serif";
+    -fx-font-size: 24px;
+    -fx-font-weight: normal;
+    -fx-text-fill: linear-gradient(#92b0b9,#83a4af);
+}

@@ -5,24 +5,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="320.0" minHeight="400.0" minWidth="320.0" prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.MainMenuController">
+<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="320.0" minHeight="400.0" minWidth="320.0" prefHeight="400.0" prefWidth="320.0" stylesheets="@../styles/mainmenu.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.MainMenuController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="30.0" maxHeight="40.0" maxWidth="140.0" minHeight="40.0" minWidth="140.0" prefHeight="40.0" prefWidth="140.0" text="Music Quiz" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="30.0">
+      <Label fx:id="titleLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="45.0" maxHeight="40.0" maxWidth="140.0" minHeight="40.0" minWidth="140.0" prefHeight="40.0" prefWidth="140.0" text="Music Quiz" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="45.0">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="131.0" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleNewGame" prefHeight="45.0" prefWidth="150.0" text="New Game" textAlignment="CENTER" AnchorPane.bottomAnchor="224.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="131.0">
+      <Button fx:id="newgameBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="131.0" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleNewGame" prefHeight="45.0" prefWidth="150.0" text="New Game" textAlignment="CENTER" AnchorPane.bottomAnchor="224.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="131.0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="221.0" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleHighScores" prefHeight="45.0" prefWidth="150.0" text="High Scores" textAlignment="CENTER" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="221.0">
+      <Button fx:id="highscoresBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="221.0" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleHighScores" prefHeight="45.0" prefWidth="150.0" text="High Scores" textAlignment="CENTER" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="221.0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="310.0" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="45.0" prefWidth="150.0" text="Exit" textAlignment="CENTER" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="310.0">
+      <Button fx:id="exitBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="310.0" maxHeight="45.0" maxWidth="150.0" minHeight="45.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="45.0" prefWidth="150.0" text="Exit" textAlignment="CENTER" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="310.0">
          <font>
             <Font size="16.0" />
          </font>
