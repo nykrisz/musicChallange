@@ -32,7 +32,7 @@ public class GameOverController implements Initializable{
      * Visszalépés a főmenübe.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleMainMenu(ActionEvent event) throws IOException {
@@ -50,7 +50,7 @@ public class GameOverController implements Initializable{
     /**
      * Kilépés a játékból.
      * 
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleExit() throws IOException{

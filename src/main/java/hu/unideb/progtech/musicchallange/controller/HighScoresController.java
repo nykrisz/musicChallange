@@ -41,7 +41,7 @@ public class HighScoresController implements Initializable{
      * Visszalépés a főmenübe.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleBack(ActionEvent event) throws IOException {

@@ -36,7 +36,7 @@ public class LoginController implements Initializable {
      * Továbblépés a játékba.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     void handleButtonNext(ActionEvent event) throws IOException {
@@ -69,7 +69,7 @@ public class LoginController implements Initializable {
      * Visszalépés a főmenübe.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleButtonBack(ActionEvent event) throws IOException{

@@ -78,7 +78,7 @@ public class NewGameController implements Initializable{
      * Visszalépés a főmenübe.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
@@ -98,8 +98,7 @@ public class NewGameController implements Initializable{
     /**
      * Rádiógombok változását figyelő függvény.
      * 
-     * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void change() throws IOException{
@@ -240,7 +239,7 @@ public class NewGameController implements Initializable{
      * valamint a számlálót, és a játékos nevét és pontszámát beleteszi
      * egy {@code User} típusú listába.
      * 
-     * @throws IOException 
+     * @throws IOException IOException
      */
     private void gameOver() throws IOException{
         MainApp.getGameManager().stopSong();

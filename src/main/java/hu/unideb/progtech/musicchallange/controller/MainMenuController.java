@@ -29,7 +29,7 @@ public class MainMenuController implements Initializable{
      * Továbblépés a játékos megadásához.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleNewGame(ActionEvent event) throws IOException{
@@ -50,7 +50,7 @@ public class MainMenuController implements Initializable{
      * Belépés a pontszámokhoz.
      * 
      * @param event event
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleHighScores(ActionEvent event) throws IOException{
@@ -70,7 +70,7 @@ public class MainMenuController implements Initializable{
     /**
      * Kilépés a játékból.
      * 
-     * @throws IOException 
+     * @throws IOException IOException
      */
     @FXML
     public void handleExit() throws IOException{
