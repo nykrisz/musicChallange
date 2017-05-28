@@ -121,7 +121,7 @@ public class NewGameController implements Initializable{
                         rb3.setSelected(false);
                         rb4.setSelected(false);
                     }else{
-                        LOGGER.trace("nincs következő zene");
+                        LOGGER.info("nincs következő zene");
                         gameOver();
                     }
                 }else{
@@ -274,10 +274,12 @@ public class NewGameController implements Initializable{
                    if(MainApp.getGameManager().getSongIndex() < MainApp.getGameManager().songSize() && MainApp.getGameManager().getLife() > 1){
                         MainApp.getGameManager().stopSong();
                         MainApp.getGameManager().decLife();
+                        LOGGER.info("lejárt az idő");
                         setLife();
                         stepSong();
                    }else{
                        try {
+                           LOGGER.info("nincs több élet");
                            gameOver();
                        } catch (IOException ex) {
                            LOGGER.warn("nem sikerült véget vetni a játéknak");

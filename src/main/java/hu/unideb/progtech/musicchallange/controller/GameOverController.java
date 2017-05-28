@@ -54,8 +54,8 @@ public class GameOverController implements Initializable{
      */
     @FXML
     public void handleExit() throws IOException{
-        Platform.exit();
         LOGGER.trace("kilépés a játékból");
+        Platform.exit();
     }
     
     
@@ -64,6 +64,7 @@ public class GameOverController implements Initializable{
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        LOGGER.info("végső pontszám kiírva");
         totalPoints.setText(Integer.toString(MainApp.getGameManager().getTotalPoints()));
     }
     

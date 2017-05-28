@@ -5,12 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="320.0" minHeight="400.0" minWidth="320.0" prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.LoginController">
    <children>
-      <Button layoutX="220.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleButtonNext" prefHeight="25.0" prefWidth="50.0" text="Next" />
-      <TextField fx:id="loginField" layoutX="80.0" layoutY="188.0" />
-      <Label layoutX="108.0" layoutY="128.0" text="add meg a neved" />
-      <Label fx:id="errorLabel" layoutX="108.0" layoutY="239.0" prefHeight="17.0" prefWidth="99.0" />
-      <Button layoutX="54.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleButtonBack" prefHeight="25.0" prefWidth="50.0" text="Back" />
+      <Button layoutX="185.0" layoutY="315.0" maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleButtonNext" prefHeight="35.0" prefWidth="100.0" text="Next" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="315.0" />
+      <TextField fx:id="loginField" layoutX="80.0" layoutY="134.0" maxHeight="25.0" maxWidth="160.0" minHeight="25.0" minWidth="160.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.bottomAnchor="241.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="134.0" />
+      <Label alignment="CENTER" layoutX="80.0" layoutY="88.0" maxHeight="25.0" maxWidth="160.0" minHeight="25.0" minWidth="160.0" prefHeight="25.0" prefWidth="160.0" text="Username:" AnchorPane.bottomAnchor="287.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="88.0" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="80.0" layoutY="217.0" maxHeight="25.0" maxWidth="160.0" minHeight="25.0" minWidth="160.0" prefHeight="25.0" prefWidth="160.0" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="217.0" />
+      <Button layoutX="35.0" layoutY="315.0" maxHeight="35.0" maxWidth="100.0" minHeight="35.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleButtonBack" prefHeight="35.0" prefWidth="100.0" text="Back" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="315.0" />
    </children>
 </AnchorPane>

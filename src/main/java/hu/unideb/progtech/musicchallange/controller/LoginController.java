@@ -61,7 +61,7 @@ public class LoginController implements Initializable {
             LOGGER.info("a játék elkezdődött");
         } else {
             LOGGER.info("nem megfelelő név");
-            errorLabel.setText("add meg a neved!");
+            errorLabel.setText("Invalid Username");
         }
     }
     
