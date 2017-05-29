@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="320.0" minHeight="400.0" minWidth="320.0" prefHeight="400.0" prefWidth="320.0" stylesheets="@../styles/mainmenu.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.MainMenuController">
+<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="350.0" minHeight="400.0" minWidth="350.0" prefHeight="400.0" prefWidth="350.0" stylesheets="@../styles/mainmenu.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.progtech.musicchallange.controller.MainMenuController">
    <children>
       <Label fx:id="titleLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="45.0" maxHeight="40.0" maxWidth="140.0" minHeight="40.0" minWidth="140.0" prefHeight="40.0" prefWidth="140.0" text="Music Quiz" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="45.0">
          <font>

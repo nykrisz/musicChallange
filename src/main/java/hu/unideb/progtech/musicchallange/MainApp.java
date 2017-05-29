@@ -47,6 +47,7 @@ public class MainApp extends Application {
         stage.setTitle("Music Quiz");
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
         gameManager = new GameManager();
         LOGGER.info("a játék betöltve");
     }
